@@ -1,4 +1,5 @@
-﻿using NoteLy.Web.ViewModels.Playlist;
+﻿using NoteLy.Web.ViewModels.Comment;
+using NoteLy.Web.ViewModels.Playlist;
 using NoteLy.Web.ViewModels.Song;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace NoteLy.Web.ViewModels
     {
         public IEnumerable<CollectionCardViewModel>? PlayLists { get; set; }
         public IEnumerable<SongCardViewModel>? Songs { get; set; }
+        public IEnumerable<CommentCardViewModel>? Comments { get; set; }
     }
 }

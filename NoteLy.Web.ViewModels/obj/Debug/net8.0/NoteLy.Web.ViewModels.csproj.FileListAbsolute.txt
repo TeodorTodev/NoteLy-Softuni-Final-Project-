@@ -13,3 +13,4 @@ D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web.ViewModels\bin
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web.ViewModels\bin\Debug\net8.0\NoteLy.Common.pdb
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web.ViewModels\obj\Debug\net8.0\NoteLy.Web.ViewModels.csproj.AssemblyReference.cache
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web.ViewModels\obj\Debug\net8.0\NoteLy.W.8E32F436.Up2Date
+D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web.ViewModels\obj\Debug\net8.0\NoteLy.Web.ViewModels.sourcelink.json

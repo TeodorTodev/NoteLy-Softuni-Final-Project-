@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using NoteLy.Data;
 using NoteLy.Web.ViewModels;
+using NoteLy.Web.ViewModels.Comment;
 using NoteLy.Web.ViewModels.Playlist;
 using NoteLy.Web.ViewModels.Song;
 using System.Diagnostics;
@@ -17,7 +18,7 @@ namespace NoteLy.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int songId)
         {
             IEnumerable<CollectionCardViewModel> playlists = await this.dbContext
                 .PlayLists
@@ -38,10 +39,22 @@ namespace NoteLy.Web.Controllers
                 })
                 .ToListAsync();
 
+            IEnumerable<CommentCardViewModel> comments = await this.dbContext
+                .Comments
+                .Where(c => c.SongId == songId)
+                .Select(s => new CommentCardViewModel()
+                {
+                    Id = s.Id.ToString(),
+                    Text = s.Text,
+                    ApplicationUserName = dbContext.Users.FirstOrDefault(u => u.Id == s.ApplicationUserId).UserName
+                })
+                .ToListAsync();
+
             var viewModel = new CompositeViewModel
             {
                 PlayLists = playlists,
-                Songs = songs
+                Songs = songs,
+                Comments = comments
             };
 
             return View(viewModel);

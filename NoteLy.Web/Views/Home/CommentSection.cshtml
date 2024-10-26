@@ -1,4 +1,32 @@
-﻿@{
+﻿@using NoteLy.Web.ViewModels.Comment
+@model IEnumerable<CommentCardViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
-<div class="CommentSection"></div>
+<div class="CommentSection">
+    <div class="CommentSectionTitleDiv">
+        <p class="CommentSectionTitle">Comments</p>
+    </div>
+    <div class="AddCommentDiv">
+        <a class="addComment" asp-area="" asp-controller="Comment" asp-action="Create"><i class="fa-solid fa-plus"></i></a>
+    </div>
+    <div class="CommentsDiv">
+        @foreach (var comment in Model)
+        {
+            <div class="Comment">
+                <div class="UserNameDiv">
+                    <p class="UserName">@comment.ApplicationUserName</p>
+                </div>
+
+                <div class="CommentContent">
+                    <p class="text">@comment.Text</p>
+                    <td class ="CommentCardActions">
+                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id"><i class="fa-solid fa-pen"></i></a>
+
+                        <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </div>
+            </div>
+        }
+    </div>
+</div>

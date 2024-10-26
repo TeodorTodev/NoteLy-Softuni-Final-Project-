@@ -1,5 +1,5 @@
 ﻿﻿@using NoteLy.Web.ViewModels.Playlist
-@model IEnumerable<NoteLy.Web.ViewModels.Playlist.CollectionCardViewModel>
+@model IEnumerable<CollectionCardViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -23,7 +23,7 @@
                     <span class="PlInfoDiv">
                         <p class="Name" style="letter-spacing: 1px; font-weight: 500;">@playlist.Name</p>
                     </span>
-                    <td>
+                    <td class="PlaylistCardActions">
                         <a asp-controller="PlayList" asp-action="Edit" asp-route-id="@playlist.Id"><i class="fa-solid fa-pen"></i></a>
 
                         <a asp-controller="PlayList" asp-action="Delete" asp-route-id="@playlist.Id"><i class="fa-solid fa-trash"></i></a>

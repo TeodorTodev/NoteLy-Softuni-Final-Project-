@@ -2,13 +2,6 @@
 @model CompositeViewModel
 @{
     ViewData["Title"] = "Home Page";
-    // Example: Create a sample model (you can replace this with actual data from your controller)
-    // var playlists = new List<CollectionCardViewModel>
-    // {
-    //     new CollectionCardViewModel { Name = "My Playlist 1", CollectionType = "Playlist" },
-    //     new CollectionCardViewModel { Name = "My Playlist 2", CollectionType = "Playlist" },
-    // };
-    // za primer che stava sys danni (problema e kak da doidat tuk dannite ot bazata)
 }
 
 <div class="header">
@@ -17,5 +10,6 @@
 <div class="sections">
     <partial name="PlayListSection" model="@Model.PlayLists" />
     <partial name="SongsSection" model="@Model.Songs" />
+    <partial name="CommentSection" model="@Model.Comments" />
 </div>
 <div class="songControls"></div>

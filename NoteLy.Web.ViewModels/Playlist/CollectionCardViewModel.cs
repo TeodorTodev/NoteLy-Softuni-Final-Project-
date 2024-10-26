@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NoteLy.Web.ViewModels.Playlist
+﻿namespace NoteLy.Web.ViewModels.Playlist
 {
     public class CollectionCardViewModel
     {
