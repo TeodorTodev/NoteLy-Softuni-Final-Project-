@@ -1,0 +1,16 @@
+﻿.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right: 20px;
+}
+
+.register, .Login {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-link {
+    color: white;
+}

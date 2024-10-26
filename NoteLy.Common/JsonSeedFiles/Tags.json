@@ -1,0 +1,14 @@
+{
+    "Tags": [
+        {"Id": 1,"Name": "Rock" },
+        {"Id": 2,"Name": "Pop" },
+        {"Id": 3,"Name": "Hip Hop" },
+        {"Id": 4,"Name": "Jazz" },
+        {"Id": 5,"Name": "Classical" },
+        {"Id": 6,"Name": "Blues" },
+        {"Id": 7,"Name": "Electronic" },
+        {"Id": 8,"Name": "Reggae" },
+        {"Id": 9,"Name": "Country" },
+        {"Id": 10,"Name": "R&B" }
+    ]
+}

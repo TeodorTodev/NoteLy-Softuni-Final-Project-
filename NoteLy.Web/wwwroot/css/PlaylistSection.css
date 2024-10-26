@@ -1,0 +1,133 @@
+﻿/**{
+    margin: 0 0 0 0;
+}*/
+
+.PlaylistSection {
+    width: 350px;
+    height: 680px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: start;
+}
+
+.TitleDiv {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 10%
+}
+
+.Title {
+    color: white;
+    line-height: 65px;
+}
+
+.SearchBarDiv {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.SearchBar {
+    width: 95%;
+    border-radius: 10px;
+    text-indent: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.SearchBar:hover {
+    border: 1px solid white;
+}
+
+.SearchBar::placeholder {
+    color: white;
+    font-size: 12px;
+}
+
+.fa-magnifying-glass {
+    position: absolute;
+    right: 25px;
+    bottom: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+.SearchBar:focus {
+    outline: none;
+    border: 1px solid white;
+}
+
+.PlaylistsDiv {
+    height: 81%;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.Playlist {
+    display: flex;
+    height: 15%;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.selected {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.Playlist:hover {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
+    /*color: rgb(73, 84, 200);*/
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.PlInfoDiv {
+    margin-left: 10px;
+}
+
+.Name, .CType {
+    margin: 0;
+    color: white;
+}

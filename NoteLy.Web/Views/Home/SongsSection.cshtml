@@ -1,0 +1,35 @@
+﻿@using NoteLy.Web.ViewModels
+@model IEnumerable<NoteLy.Web.ViewModels.Song.SongCardViewModel>
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+    <div class="SongsSection">
+        <div class="collectionNameDiv">
+        <p class="PlayListName">PlayListName</p>
+        </div>
+        <div class="textExplainDiv">
+            <p class="numberSign">&#x2116</p>
+            <p class="title">Title</p>
+            <i class="fa-regular fa-clock"></i>
+            <a class="addSong" asp-area="" asp-controller="Song" asp-action="Create"><i class="fa-solid fa-plus"></i></a>
+        </div>
+        <div class="songs">
+            @foreach (var song in Model)
+            {
+                int counter = 1;
+                <div class="Song">
+                    <p>@counter</p>
+                    <img src="#" alt="Alternate Text" />
+                    <span class="SongInfo">
+                        <p class="Name">@song.Name</p>
+                        <p class="Artists">@string.Join(" ", song.Artists)</p>
+                    </span>
+                    <p class="Duration">@song.Duration</p>
+                <a class="editSong" asp-area="" asp-controller="Song" asp-action="Edit"><i class="fa-solid fa-pen"></i></a>
+                    <a asp-controller="Song" asp-action="Delete" asp-route-id="@song.Id"><i class="fa-solid fa-trash"></i></a>
+                </div>
+                counter++;
+            }
+        </div>
+    </div>

@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "NoteLy.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "NoteLy.Common": "1.0.0"
+        },
+        "runtime": {
+          "NoteLy.Web.ViewModels.dll": {}
+        }
+      },
+      "NoteLy.Common/1.0.0": {
+        "runtime": {
+          "NoteLy.Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NoteLy.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NoteLy.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

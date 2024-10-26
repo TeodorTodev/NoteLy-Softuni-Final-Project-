@@ -1,0 +1,52 @@
+﻿.SongsSection {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 15px 15px 15px 15px;
+}
+
+.collectionNameDiv {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 30%;
+}
+
+.PlayListName {
+    line-height: 5;
+    font-size: 40px;
+    color: white;
+}
+
+.textExplainDiv {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.numberSign, .title, .textExplainDiv i {
+    margin-bottom: 2px;
+    color: white;
+}
+
+.numberSign {
+    margin-left: 8px;
+}
+
+.title {
+    margin-left: 50px;
+}
+
+.textExplainDiv i {
+    margin-left: 900px;
+}
+
+.addSong i {
+    margin-left: 60px;
+}

@@ -1,0 +1,17 @@
+﻿@model NoteLy.Web.ViewModels.Playlist.EditPlaylistViewModel
+
+<h2>Edit Playlist</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Save</button>
+</form>
+
+<a asp-controller="Home" asp-action="Index">Back</a>

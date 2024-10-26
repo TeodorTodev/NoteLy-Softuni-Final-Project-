@@ -1,0 +1,48 @@
+{
+  "Artists": [
+    {
+      "Id": 1,
+      "UserName": "Beyoncé"
+    },
+    {
+      "Id": 2,
+      "UserName": "Drake"
+    },
+    {
+      "Id": 3,
+      "UserName": "ArianaGrande"
+    },
+    {
+      "Id": 4,
+      "UserName": "Eminem"
+    },
+    {
+      "Id": 5,
+      "UserName": "Nicki Minaj"
+    },
+    {
+      "Id": 6,
+      "UserName": "SnoopDogg"
+    },
+    {
+      "Id": 7,
+      "UserName": "BillieEilish"
+    },
+    {
+      "Id": 8,
+      "UserName": "Rihanna"
+    },
+    {
+      "Id": 9,
+      "UserName": "LilNasX"
+    },
+    {
+      "Id": 10,
+      "UserName": "BrunoMars"
+    },
+    {
+      "Id": 11,
+      "UserName": "2Pac"
+    }
+  ]
+}

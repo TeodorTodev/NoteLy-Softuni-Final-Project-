@@ -1,0 +1,81 @@
+{
+  "Songs": [
+    {
+      "Id": 1,
+      "Name": "TEXAS HOLD 'EM",
+      "Duration": "00:03:57",
+      "FilePath": "https://www.youtube.com/watch?v=238Z4YaAr1g",
+      "PlayListId": 1
+    },
+    {
+      "Id": 2,
+      "Name": "God's Plan",
+      "Duration": "00:05:56",
+      "FilePath": "https://www.youtube.com/watch?v=xpVfcZ0ZcFM",
+      "PlayListId": 1
+    },
+    {
+      "Id": 3,
+      "Name": "Side To Side",
+      "Duration": "00:03:57",
+      "FilePath": "https://www.youtube.com/watch?v=SXiSVQZLje8",
+      "PlayListId": 1
+    },
+    {
+      "Id": 5,
+      "Name": "Without Me",
+      "Duration": "00:04:57",
+      "FilePath": "https://www.youtube.com/watch?v=YVkUvmDQ3HY",
+      "PlayListId": 2
+    },
+    {
+      "Id": 6,
+      "Name": "Anaconda",
+      "Duration": "00:04:49",
+      "FilePath": "https://www.youtube.com/watch?v=LDZX4ooRsWs",
+      "PlayListId": 2
+    },
+    {
+      "Id": 7,
+      "Name": "Who Am I",
+      "Duration": "00:04:34",
+      "FilePath": "https://www.youtube.com/watch?v=2soGJXQAQec",
+      "PlayListId": 2
+    },
+    {
+      "Id": 8,
+      "Name": "bad guy",
+      "Duration": "00:03:25",
+      "FilePath": "https://www.youtube.com/watch?v=DyDfgMOUjCI",
+      "PlayListId": 2
+    },
+    {
+      "Id": 9,
+      "Name": "Don't Stop The Music",
+      "Duration": "00:03:53",
+      "FilePath": "https://www.youtube.com/watch?v=yd8jh9QYfEs",
+      "PlayListId": 3
+    },
+    {
+      "Id": 10,
+      "Name": "HOLIDAY",
+      "Duration": "00:02:47",
+      "FilePath": "https://www.youtube.com/watch?v=9vMLTcftlyI",
+      "PlayListId": 3
+    },
+    {
+      "Id": 11,
+      "Name": "Treasure",
+      "Duration": "00:03:11",
+      "FilePath": "https://www.youtube.com/watch?v=nPvuNsRccVw",
+      "PlayListId": 3
+    },
+    {
+      "Id": 12,
+      "Name": "All Eyez On Me",
+      "Duration": "00:05:07",
+      "FilePath": "https://www.youtube.com/watch?v=H1HdZFgR-aA",
+      "PlayListId": 4
+    }
+  ]
+}
