@@ -18,6 +18,6 @@ namespace NoteLy.Web.ViewModels.Song
 
         public string PlayListName { get; set; } = null!;
 
-        public List<string> ArtistNames { get; set; } = null!; // add validation
+        public string ArtistNames { get; set; } = null!; // add validation
     }
 }

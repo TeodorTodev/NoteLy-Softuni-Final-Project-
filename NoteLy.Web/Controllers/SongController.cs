@@ -24,7 +24,7 @@ namespace NoteLy.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(AddSongInputModel songViewModel, List<string> artistNames)
+        public async Task<IActionResult> Create(AddSongInputModel songViewModel)
         {
             if (!_dbContext.PlayLists.Any(p => p.Name == songViewModel.PlayListName))
             {
@@ -41,6 +41,10 @@ namespace NoteLy.Web.Controllers
 
             _dbContext.Songs.Add(newSong);
             await _dbContext.SaveChangesAsync();
+
+            List<string> artistNames = songViewModel.ArtistNames.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => s.Trim())
+                .ToList();
 
             foreach (var artistName in artistNames)
             {
