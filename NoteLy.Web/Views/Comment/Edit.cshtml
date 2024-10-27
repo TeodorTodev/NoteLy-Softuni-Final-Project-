@@ -1,0 +1,17 @@
+﻿﻿@using NoteLy.Web.ViewModels.Comment
+@using Microsoft.AspNetCore.Identity
+@using NoteLy.Data.Models
+@model EditCommentViewModel
+
+<h2>Edit Comment</h2>
+
+<form asp-action="Edit" method="post">
+    <div>
+        <label asp-for="Text">Comment</label>
+        <input asp-for="Text" class="form-control" />
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+</form>
+
+<a asp-controller="Home" asp-action="Index">Back</a>

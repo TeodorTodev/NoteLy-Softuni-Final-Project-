@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Notely.Data.Models;
 using NoteLy.Data;
 using NoteLy.Web.ViewModels.Comment;
@@ -43,5 +44,40 @@ namespace NoteLy.Web.Controllers
             return this.RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var comment = await _dbContext.Comments.FindAsync(id);
+
+            var viewModel = new EditCommentViewModel
+            {
+                Id = comment.Id,
+                Text = comment.Text
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(EditCommentViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var comment = await _dbContext.Comments.FindAsync(model.Id);
+                if (comment == null)
+                {
+                    return this.RedirectToAction("Index", "Home");
+                }
+
+                comment.Text = model.Text;
+
+                await _dbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index", "Home", new { songId = comment.SongId });
+            }
+
+            return View(model);
+        }
     }
 }
