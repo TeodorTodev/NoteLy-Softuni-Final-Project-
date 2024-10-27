@@ -3,10 +3,10 @@
 playlists.forEach(playlist => {
     playlist.addEventListener('click', () => {
         // Remove 'selected' class from all items
-        playlists.forEach(i => i.classList.remove('selected'));
+        playlists.forEach(i => i.classList.remove('selectedPlaylist'));
         // Add 'selected' class to the clicked item
-        playlist.classList.add('selected');
-        let selectedCollection = document.getElementsByClassName('selected')[0];
+        playlist.classList.add('selectedPlaylist');
+        let selectedCollection = document.getElementsByClassName('selectedPlaylist')[0];
         let selectedCollectionName = selectedCollection.querySelector('.PlInfoDiv .Name');
         let nameValue = selectedCollectionName.textContent;
         let playListName = document.getElementsByClassName('PlayListName')[0];

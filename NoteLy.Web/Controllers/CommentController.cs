@@ -41,7 +41,7 @@ namespace NoteLy.Web.Controllers
             await this._dbContext.Comments.AddAsync(comment);
             await this._dbContext.SaveChangesAsync();
 
-            return this.RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { songId = comment.SongId });
         }
 
         [HttpGet]
@@ -78,6 +78,23 @@ namespace NoteLy.Web.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var comment = await _dbContext.Comments
+                .FirstOrDefaultAsync(s => s.Id == id);
+
+            if (comment == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            _dbContext.Comments.Remove(comment);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home", new { songId = comment.SongId });
         }
     }
 }

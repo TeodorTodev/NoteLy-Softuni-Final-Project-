@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\js\\PlaylistSelection.js"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongSelection.js",
+      "PackagePath": "staticwebassets\\js\\SongSelection.js"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongsSection.js",
       "PackagePath": "staticwebassets\\js\\SongsSection.js"
     },
