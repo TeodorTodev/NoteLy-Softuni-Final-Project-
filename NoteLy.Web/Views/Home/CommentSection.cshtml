@@ -20,11 +20,13 @@
 
                 <div class="CommentContent">
                     <p class="text">@comment.Text</p>
-                    <td class ="CommentCardActions">
-                        <a asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id"><i class="fa-solid fa-pen"></i></a>
+                    <div class="CommentCardActions">
+                        <td>
+                            <a class="editComment" asp-controller="Comment" asp-action="Edit" asp-route-id="@comment.Id"><i class="fa-solid fa-pen"></i></a>
 
-                        <a asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id"><i class="fa-solid fa-trash"></i></a>
-                    </td>
+                            <a class="deleteComment" asp-controller="Comment" asp-action="Delete" asp-route-id="@comment.Id"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </div>
                 </div>
             </div>
         }

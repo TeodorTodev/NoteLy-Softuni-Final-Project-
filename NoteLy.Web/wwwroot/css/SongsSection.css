@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    padding: 15px 15px 15px 15px;
+    padding: 0px 15px 0px 15px;
 }
 
 .collectionNameDiv {
@@ -44,9 +44,88 @@
 }
 
 .textExplainDiv i {
-    margin-left: 900px;
+    margin-left: 850px;
+    line-height: 1.5;
 }
 
 .addSong i {
-    margin-left: 60px;
+    margin-left: 110px;
+}
+
+.Songs {
+    height: 66%;
+}
+
+.Song {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 10px
+}
+
+.SongNumber {
+    margin: 0;
+    color: white;
+    margin-left: 10px;
+    line-height: 60px;
+}
+
+.Song img {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: 20px;
+}
+
+.SongInfo {
+    margin-left: 20px;
+    width: 75%;
+}
+
+.Name {
+    font-size: 20px;
+}
+
+.Artists {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(240, 240, 240);
+}
+
+.Duration {
+    margin: 0;
+    color: white;
+}
+
+.renderComments {
+    margin-left: 45px;
+}
+
+.renderComments i {
+    color: white;
+}
+
+.SongCardActions {
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+    justify-content: space-around
+}
+
+.editSong {
+    color: white;
+}
+
+.deleteSong {
+    color: rgb(255 87 51);
 }

@@ -68,6 +68,16 @@
     border: 1px solid white;
 }
 
+.addPlaylistDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addPlayList {
+    color: white;
+    margin-right: 25px;
+}
+
 .PlaylistsDiv {
     height: 81%;
     overflow-y: auto;
@@ -90,7 +100,7 @@
 
 .Playlist {
     display: flex;
-    height: 15%;
+    height: 12%;
     align-items: center;
     box-sizing: border-box;
     cursor: pointer;
@@ -113,7 +123,6 @@
 .icon {
     height: 50px;
     width: 50px;
-    /*color: rgb(73, 84, 200);*/
     margin-left: 10px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
@@ -125,9 +134,24 @@
 
 .PlInfoDiv {
     margin-left: 10px;
+    width: 70%;
 }
 
-.Name, .CType {
+.Name {
     margin: 0;
     color: white;
+}
+
+.PlaylistCardActions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.editPlaylist {
+    color: white;
+}
+
+.deletePlaylist {
+    color: rgb(255 87 51);
 }

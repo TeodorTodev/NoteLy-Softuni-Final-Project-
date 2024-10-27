@@ -12,22 +12,24 @@
             <input class="SearchBar" type="text" id="search" placeholder="Search in your library">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <div class="addSongDiv">
+        <div class="addPlaylistDiv">
             <a class="addPlayList" asp-area="" asp-controller="PlayList" asp-action="Create"><i class="fa-solid fa-plus"></i></a>
         </div>
         <div class="PlaylistsDiv">
         @foreach (var playlist in Model)
             {
                 <div class="Playlist">
-                    <img class="icon" src="Resources/noun-note-7130559.svg" alt="Alternate Text" />
+                    <img class="icon" src="~/Resources/noun-note-7130559.svg" alt="Alternate Text" />
                     <span class="PlInfoDiv">
                         <p class="Name" style="letter-spacing: 1px; font-weight: 500;">@playlist.Name</p>
                     </span>
-                    <td class="PlaylistCardActions">
-                        <a asp-controller="PlayList" asp-action="Edit" asp-route-id="@playlist.Id"><i class="fa-solid fa-pen"></i></a>
+                    <div class="PlaylistCardActions">
+                        <td>
+                            <a class="editPlaylist" asp-controller="PlayList" asp-action="Edit" asp-route-id="@playlist.Id"><i class="fa-solid fa-pen"></i></a>
 
-                        <a asp-controller="PlayList" asp-action="Delete" asp-route-id="@playlist.Id"><i class="fa-solid fa-trash"></i></a>
-                    </td>
+                            <a class="deletePlaylist" asp-controller="PlayList" asp-action="Delete" asp-route-id="@playlist.Id"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </div>
                 </div>
             }
         </div>

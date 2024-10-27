@@ -1,0 +1,22 @@
+﻿﻿@using NoteLy.Web.ViewModels.Comment
+@using Microsoft.AspNetCore.Identity
+@using NoteLy.Data.Models
+@model AddCommentInputModel
+
+<h2>Add a Comment</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Text">Comment</label>
+        <input asp-for="Text" class="form-control" />
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="SongName">Song Name</label>
+        <input asp-for="SongName" class="form-control" />
+        <span asp-validation-for="SongName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Add Comment</button>
+</form>
+
+<a asp-controller="Home" asp-action="Index">Back</a>
