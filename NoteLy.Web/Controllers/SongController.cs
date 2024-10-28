@@ -6,6 +6,7 @@ using Notely.Data.Models;
 using System.Security.Claims;
 using NuGet.Packaging;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NoteLy.Web.Controllers
 {
@@ -89,64 +90,95 @@ namespace NoteLy.Web.Controllers
                 return NotFound();
             }
 
+
+            var artists = song.Artists.ToList();
+            var artistsIds = new List<int>();
+            foreach (var artist in artists) 
+            {
+                artistsIds.Add(artist.ArtistId);
+            }
+            var usernames = await _dbContext.Artists
+            .Where(a => artistsIds.Contains(a.Id)) // Filter for the given IDs
+            .Select(a => a.UserName) // Select the UserName property
+            .ToListAsync(); // Execute the query
+
             // Prepare the view model with the song details, including FilePath
             var viewModel = new EditSongViewModel
             {
                 Id = song.Id,
                 Name = song.Name,
                 Duration = song.Duration,
-                FilePath = song.FilePath,  // Populate FilePath
-                ArtistNames = song.Artists.Select(a => a.Artist.UserName).ToList()
+                FilePath = song.FilePath,
+                ArtistNames = string.Join(", ", usernames),
             };
 
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult Edit(EditSongViewModel model)
+        public async Task<IActionResult> Edit(EditSongViewModel model)
         {
-            //var song = await _dbContext.Songs
-            //.Include(s => s.Artists)  // Load artists associated with the song
-            //.FirstOrDefaultAsync(s => s.Id == model.Id);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-            //if (song == null)
-            //{
-            //    return NotFound();  // Return 404 if the song doesn't exist
-            //}
+            var song = await _dbContext.Songs
+                .Include(s => s.Artists) // Include existing artists
+                .FirstOrDefaultAsync(s => s.Id == model.Id);
 
-            //// Update song properties
-            //song.Name = model.Name;
-            //song.Duration = model.Duration;
-            //song.FilePath = model.FilePath;
+            if (song == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
-            //// Handle updating artists
-            //var selectedArtistIds = model.SelectedArtistIds;  // The list of selected artist IDs
+            // Update the song properties
+            song.Name = model.Name;
+            song.Duration = model.Duration;
+            song.FilePath = model.FilePath;
 
-            //if (selectedArtistIds != null && selectedArtistIds.Count > 0)
-            //{
-            //    // Fetch the selected artists from the database
-            //    var selectedArtists = await _dbContext.Artists
-            //        .Where(a => selectedArtistIds.Contains(a.Id))
-            //        .ToListAsync();
+            // Split artist names into a list and trim whitespace
+            var artistNames = model.ArtistNames
+                .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(a => a.Trim())
+                .ToList();
 
-            //    // Clear existing artist relationships
-            //    song.Artists.Clear();
+            foreach (var artistName in artistNames)
+            {
+                // Check if the artist already exists in the database
+                var existingArtist = await _dbContext.Artists
+                    .FirstOrDefaultAsync(a => a.UserName == artistName);
 
-            //    // Add the selected artists to the song
-            //    song.Artists.AddRange(selectedArtists);
-            //}
-            //else
-            //{
-            //    // If no artists are selected, clear the current associations
-            //    song.Artists.Clear();
-            //}
+                if (existingArtist != null)
+                {
+                    // If the artist exists, add the relationship if it doesn't exist
+                    if (!song.Artists.Any(a => a.ArtistId == existingArtist.Id))
+                    {
+                        song.Artists.Add(new ArtistSong { SongId = song.Id, ArtistId = existingArtist.Id });
+                    }
+                }
+                else
+                {
+                    // If the artist does not exist, create a new artist and add it
+                    var newArtist = new Artist
+                    {
+                        UserName = artistName
+                        // Set other properties if necessary
+                    };
 
-            //// Save changes to the database
-            //await _dbContext.SaveChangesAsync();
+                    // Add the new artist to the context
+                    await _dbContext.Artists.AddAsync(newArtist);
+                    await _dbContext.SaveChangesAsync();
 
-            //// Redirect to the Index or another page
-            //return RedirectToAction("Index", "Home");
-            return View(model);
+                    // Create the relationship with the song
+                    song.Artists.Add(new ArtistSong { SongId = song.Id, ArtistId = newArtist.Id });
+                }
+            }
+
+            // Save changes to the database
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

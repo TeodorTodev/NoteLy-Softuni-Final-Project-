@@ -18,6 +18,14 @@ namespace NoteLy.Common
             public const string NameRequiredMessage = "Song name is required.";
             public const string DurationRequiredMessage = "Song duration is required.";
             public const string UrlRequiredMessage = "YouTube URL is required.";
+            public const string PlaylistRequiredMessage = "Playlist is rquired";
+            public const string ArtistsRequiredMessage = "Enter at least 1 artist";
+        }
+
+        public static class Comment 
+        {
+            public const string ContentRequiredMessage = "Comment content is required.";
+            public const string ContentMaxLengthMessage = "Exceeding maximum length of 255 characters.";
         }
     }
 }

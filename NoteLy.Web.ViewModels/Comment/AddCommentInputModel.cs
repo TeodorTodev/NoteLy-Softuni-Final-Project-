@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using static NoteLy.Common.EntityValidationConstants.Comment;
+using static NoteLy.Common.EntityValidationMessages.Comment;
 
 namespace NoteLy.Web.ViewModels.Comment
 {
     public class AddCommentInputModel
     {
-        [Required]
+        [Required(ErrorMessage = ContentRequiredMessage)]
+        [MaxLength(CommentMaxLength, ErrorMessage = ContentMaxLengthMessage)]
         public string Text { get; set; } = null!;
 
         [Required]

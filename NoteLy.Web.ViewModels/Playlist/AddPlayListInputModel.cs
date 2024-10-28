@@ -7,7 +7,7 @@ namespace NoteLy.Web.ViewModels.Playlist
     public class AddPlayListInputModel
 	{
 		[Required(ErrorMessage = NameRequiredMessage)]
-		[MaxLength(PlayListNameMaxLength)]
-		public string Name { get; set; } = null!;
+        [StringLength(PlayListNameMaxLength, ErrorMessage = NameRangeMessage, MinimumLength = PlayListNameMinLength)]
+        public string Name { get; set; } = null!;
 	}
 }

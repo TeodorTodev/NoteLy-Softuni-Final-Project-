@@ -18,8 +18,7 @@ namespace NoteLy.Web.ViewModels.Song
         [Required(ErrorMessage = UrlRequiredMessage)]
         public string FilePath { get; set; } = null!;
 
-        public List<int> SelectedArtistIds { get; set; } = null!;
-
-        public List<string> ArtistNames { get; set; } = null!; // add validation
+        [Required(ErrorMessage = ArtistsRequiredMessage)]
+        public string ArtistNames { get; set; } = null!;
     }
 }

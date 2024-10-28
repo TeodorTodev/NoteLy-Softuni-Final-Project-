@@ -9,3 +9,4 @@ D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Common\obj\Debug\n
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Common\obj\Debug\net8.0\refint\NoteLy.Common.dll
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Common\obj\Debug\net8.0\NoteLy.Common.pdb
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Common\obj\Debug\net8.0\ref\NoteLy.Common.dll
+D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Common\obj\Debug\net8.0\NoteLy.Common.sourcelink.json
