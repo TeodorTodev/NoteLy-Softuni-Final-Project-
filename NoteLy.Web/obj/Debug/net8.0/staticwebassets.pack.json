@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\CommentSection.css"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\CreateComment.css",
+      "PackagePath": "staticwebassets\\css\\CreateComment.css"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\CreatePlaylist.css",
       "PackagePath": "staticwebassets\\css\\CreatePlaylist.css"
     },

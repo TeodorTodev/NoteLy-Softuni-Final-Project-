@@ -1,44 +1,34 @@
-﻿.SongInputDiv {
-    height: 600px;
-    width: 600px;
+﻿.CommentInputDiv {
+    height: 500px;
+    width: 500px;
     padding: 0px 10px 0px 10px;
-
     background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-
     display: flex;
     flex-direction: column;
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.AddSongTitle {
+.AddCommentTitle {
     margin: 0;
     height: 20%;
     text-align: center;
-    line-height: 4.5;
+    line-height: 3.5;
     color: white;
 }
 
-.SongForm {
+.CommentForm {
     height: 80%;
 }
 
-.SongInputFields {
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.CommonSongInputFieldClass {
+.CommentNameInput, .CommentSongNameInput {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -47,17 +37,21 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.CommonSongInputFieldClass::placeholder {
+.CommentNameInput::placeholder, .CommentSongNameInput::placeholder {
     color: #333
 }
 
-.SongInputBtns {
-    margin-top: 50px;
+.CommentSongNameInputForm {
+    margin-top:  10px;
+}
+
+.CommentInputBtns {
+    margin-top: 220px;
     display: flex;
     justify-content: space-between;
 }
 
-.SongBackBtn {
+.CommentBackBtn {
     background-color: white;
     text-decoration: none;
     padding: 6px 12px 6px 12px;
@@ -66,18 +60,18 @@
     transition: 0.3s;
 }
 
-.SongBackBtn:hover {
+.CommentBackBtn:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: #333;
 }
 
-.createSong {
+.createComment {
     margin-top: 0;
     background-color: white;
     color: #333;
 }
 
-.createSong:hover {
+.createComment:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: #333;
 }

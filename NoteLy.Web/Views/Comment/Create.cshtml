@@ -3,20 +3,25 @@
 @using NoteLy.Data.Models
 @model AddCommentInputModel
 
-<h2>Add a Comment</h2>
+<div class="CommentInputDiv">
+    <h2 class="AddCommentTitle">Add a Comment</h2>
 
-<form asp-action="Create" method="post">
-    <div>
-        <label asp-for="Text">Comment</label>
-        <input asp-for="Text" class="form-control" />
-        <span asp-validation-for="Text" class="text-danger"></span>
-    </div>
-    <div>
-        <label asp-for="SongName">Song Name</label>
-        <input asp-for="SongName" class="form-control" />
-        <span asp-validation-for="SongName" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Add Comment</button>
-</form>
+    <form class="CommentForm" asp-action="Create" method="post">
+        <div class="CommentInputFields">
+            <div class="CommentNameInputForm">
+                <label class="text-white" asp-for="Text">Comment</label>
+                <input asp-for="Text" class="CommentNameInput form-control" placeholder="Write a comment" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="CommentSongNameInputForm">
+                <label class="text-white" asp-for="SongName">Song Name</label>
+                <input asp-for="SongName" class="CommentSongNameInput form-control" placeholder="Enter a song name" />
+                <span asp-validation-for="SongName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="CommentInputBtns">
+            <a class="CommentBackBtn" asp-controller="Home" asp-action="Index">Back</a>
+            <button type="submit" class="btn btn-primary createComment">Add Comment</button>
+        </div>
+    </form>
 
-<a asp-controller="Home" asp-action="Index">Back</a>
