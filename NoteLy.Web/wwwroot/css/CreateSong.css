@@ -1,4 +1,4 @@
-﻿.PlaylistInputDiv {
+﻿/*﻿.SongInputDiv {
     height: 500px;
     width: 500px;
     padding: 0px 10px 0px 10px;
@@ -17,22 +17,49 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}*/
 
+.SongInputDiv {
+    height: 600px;
+    width: 600px;
+    padding: 0px 10px 0px 10px;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.AddPlaylistTitle {
+.AddSongTitle {
     margin: 0;
-    height: 30%;
+    height: 20%;
     text-align: center;
-    line-height: 5;
+    line-height: 4.5;
     color: white;
 }
 
-.PlaylistForm {
-    height: 70%;
+.SongForm {
+    height: 80%;
 }
 
-.PlaylistNameInput {
+.SongInputFields {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.CommonSongInputFieldClass {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -41,17 +68,17 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.PlaylistNameInput::placeholder {
+.CommonSongInputFieldClass::placeholder {
     color: #333
 }
 
-.PlaylistInputBtns {
-    margin-top: 235px;
+.SongInputBtns {
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
 }
 
-.PlaylistBackBtn {
+.SongBackBtn {
     background-color: white;
     text-decoration: none;
     padding: 6px 12px 6px 12px;
@@ -60,18 +87,18 @@
     transition: 0.3s;
 }
 
-.PlaylistBackBtn:hover {
+.SongBackBtn:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: #333;
 }
 
-.addPlaylist {
+.createSong {
     margin-top: 0;
     background-color: white;
     color: #333;
 }
 
-.addPlaylist:hover {
+.createSong:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: #333;
 }
