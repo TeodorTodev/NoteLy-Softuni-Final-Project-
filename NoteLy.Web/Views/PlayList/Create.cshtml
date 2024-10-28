@@ -4,15 +4,20 @@
 @model AddPlayListInputModel
 
 
-<h2>Add a new Playlist</h2>
 
-<form asp-action="Create" method="post">
-    <div>
-        <label asp-for="Name">Movie Name</label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Add Playlist</button>
-</form>
+<div class="PlaylistInputDiv">
+    <h2 class="AddPlaylistTitle">Add a new Playlist</h2>
 
-<a asp-controller="Home"  asp-action="Index">Back</a>
+    <form class="PlaylistForm" asp-action="Create" method="post">
+        <div class="PlaylistInputField">
+            <label class="text-white" asp-for="Name">Playlist Name</label>
+            <input asp-for="Name" class="PlaylistNameInput form-control" placeholder="Enter Playlist Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="PlaylistInputBtns">
+            <a class="PlaylistBackBtn" asp-controller="Home"  asp-action="Index">Back</a>
+            <button type="submit" class="btn btn-primary">Add Playlist</button>
+        </div>
+    </form>
+
+</div>
