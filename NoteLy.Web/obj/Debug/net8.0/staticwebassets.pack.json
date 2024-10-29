@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\css\\EditPlaylist.css"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\EditSong.css",
+      "PackagePath": "staticwebassets\\css\\EditSong.css"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Global.css",
       "PackagePath": "staticwebassets\\css\\Global.css"
     },

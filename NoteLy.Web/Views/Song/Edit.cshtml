@@ -1,32 +1,33 @@
 ﻿@model NoteLy.Web.ViewModels.Song.EditSongViewModel
+<div class="EditSongInputDiv">
+    <h2 class="EditSongTitle">Edit Song</h2>
 
-<h2>Edit Song</h2>
-
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-
-    <div>
-        <label asp-for="Name">Song name</label>
-        <input asp-for="Name" placeholder="Enter the name of the song" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div>
-        <label asp-for="Duration">Duration of the song</label>
-        <input asp-for="Duration" placeholder="Enter the duration of the song in format: hh:mm:ss (00:00:00)" />
-        <span asp-validation-for="Duration" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ArtistNames">Artists (comma-separated)</label>
-        <input asp-for="ArtistNames" class="form-control" placeholder="Enter artist names separated by commas" />
-        <span asp-validation-for="ArtistNames" class="text-danger"></span>
-    </div>
-    <div>
-        <label asp-for="FilePath">Youtube URL of the song</label>
-        <input asp-for="FilePath" placeholder="Enter Song URL" />
-        <span asp-validation-for="FilePath" class="text-danger"></span>
-    </div>
-
-    <button type="submit">Save</button>
-</form>
-
-<a asp-controller="Home" asp-action="Index">Back</a>
+    <form class="EditSongForm" asp-action="Edit" method="post">
+        <div class="EditSongInputFields">
+            <div class="CommonEditSongInputDivClass">
+                <label class="text-white" asp-for="Name">Song name</label>
+                <input asp-for="Name" class="CommonEditSongInputFieldClass" placeholder="Enter the name of the song" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="CommonEditSongInputDivClass">
+                <label class="text-white" asp-for="Duration">Duration of the song</label>
+                <input asp-for="Duration" class="CommonEditSongInputFieldClass" placeholder="Enter the duration of the song in format: hh:mm:ss (00:00:00)" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="CommonEditSongInputDivClass">
+                <label class="text-white" asp-for="ArtistNames">Artists (comma-separated)</label>
+                <input asp-for="ArtistNames" class="CommonEditSongInputFieldClass" placeholder="Enter artist names separated by commas" />
+                <span asp-validation-for="ArtistNames" class="text-danger"></span>
+            </div>
+            <div class="CommonEditSongInputDivClass">
+                <label class="text-white" asp-for="FilePath">Youtube URL of the song</label>
+                <input asp-for="FilePath" class="CommonEditSongInputFieldClass" placeholder="Enter Song URL" />
+                <span asp-validation-for="FilePath" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="EditSongInputBtns">
+            <a class="EditSongBackBtn" asp-controller="Home" asp-action="Index">Back</a>
+            <button type="submit" class="btn btn-primary EditSong">Save</button>
+        </div>
+    </form>
+</div>
