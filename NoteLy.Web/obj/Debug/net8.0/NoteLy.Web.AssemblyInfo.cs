@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NoteLy.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90c5525910c29922bd512d12aefad02518a75fe1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee41c4213150e3a357e5ab0e38120e013785ee5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("NoteLy.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NoteLy.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

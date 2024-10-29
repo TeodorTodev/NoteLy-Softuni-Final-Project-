@@ -50,6 +50,11 @@
 
 .addSong i {
     margin-left: 110px;
+    transition: 0.3s;
+}
+
+.addSong i:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .Songs {
@@ -121,6 +126,11 @@
 
 .renderComments i {
     color: white;
+    transition: 0.3s;
+}
+
+.renderComments i:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .SongCardActions {
@@ -132,8 +142,18 @@
 
 .editSong {
     color: white;
+    transition: 0.3s;
+}
+
+.editSong:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .deleteSong {
     color: rgb(255 87 51);
+    transition: 0.3s;
+}
+
+.deleteSong:hover {
+    color: rgb(255, 87, 51, 0.5);
 }

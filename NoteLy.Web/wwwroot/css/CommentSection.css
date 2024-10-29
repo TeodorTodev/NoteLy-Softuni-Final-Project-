@@ -32,6 +32,11 @@
 .addComment {
     color: white;
     margin-right: 20px;
+    transition: 0.3s;
+}
+
+.addComment:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .CommentsDiv {
@@ -87,8 +92,18 @@
 
 .editComment {
     color: white;
+    transition: 0.3s;
+}
+
+.editComment:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .deleteComment {
     color: rgb(255 87 51);
+    transition: 0.3s;
+}
+
+.deleteComment:hover {
+    color: rgb(255, 87, 51, 0.5);
 }

@@ -61,6 +61,11 @@
     bottom: 7px;
     color: white;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.fa-magnifying-glass:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .SearchBar:focus {
@@ -76,6 +81,11 @@
 .addPlayList {
     color: white;
     margin-right: 25px;
+    transition: 0.3s;
+}
+
+.addPlayList:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .PlaylistsDiv {
@@ -150,8 +160,18 @@
 
 .editPlaylist {
     color: white;
+    transition: 0.3s;
+}
+
+.editPlaylist:hover {
+    color: rgb(255, 255, 255, 0.5);
 }
 
 .deletePlaylist {
     color: rgb(255 87 51);
+    transition: 0.3s;
+}
+
+.deletePlaylist:hover {
+    color: rgb(255, 87, 51, 0.5);
 }
