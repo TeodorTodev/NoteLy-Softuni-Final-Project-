@@ -52,7 +52,7 @@ namespace NoteLy.Web.Controllers
             var viewModel = new EditCommentViewModel
             {
                 Id = comment.Id,
-                Text = comment.Text
+                Text = comment.Text,
             };
 
             return View(viewModel);

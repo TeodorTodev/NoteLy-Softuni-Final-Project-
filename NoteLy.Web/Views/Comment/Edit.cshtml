@@ -2,16 +2,18 @@
 @using Microsoft.AspNetCore.Identity
 @using NoteLy.Data.Models
 @model EditCommentViewModel
+<div class="EditCommentInputDiv">
+    <h2 class="EditCommentTitle">Edit Comment</h2>
 
-<h2>Edit Comment</h2>
-
-<form asp-action="Edit" method="post">
-    <div>
-        <label asp-for="Text">Comment</label>
-        <input asp-for="Text" class="form-control" />
-        <span asp-validation-for="Text" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Save</button>
-</form>
-
-<a asp-controller="Home" asp-action="Index">Back</a>
+    <form class="EditCommentForm" asp-action="Edit" method="post">
+        <div class="CommentInputField">
+            <label class="text-white" asp-for="Text">Comment</label>
+            <input asp-for="Text" class="EditCommentNameInput form-control" placeholder="Write a comment" />
+            <span asp-validation-for="Text" class="text-danger"></span>
+        </div>
+        <div class="EditCommentInputBtns">
+            <a class="CommentBackBtn" asp-controller="Home" asp-action="Index">Back</a>
+            <button type="submit" class="btn btn-primary EditComment">Save</button>
+        </div>
+    </form>
+</div>
