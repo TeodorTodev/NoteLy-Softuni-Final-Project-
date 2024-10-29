@@ -24,6 +24,7 @@ namespace NoteLy.Web.Controllers
                 .PlayLists
                 .Select(c => new CollectionCardViewModel()
                 {
+                    Id = c.Id.ToString(),
                     Name = c.Name,
                 })
                 .ToListAsync();

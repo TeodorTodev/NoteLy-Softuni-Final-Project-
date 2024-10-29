@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\CreateSong.css"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\EditPlaylist.css",
+      "PackagePath": "staticwebassets\\css\\EditPlaylist.css"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Global.css",
       "PackagePath": "staticwebassets\\css\\Global.css"
     },

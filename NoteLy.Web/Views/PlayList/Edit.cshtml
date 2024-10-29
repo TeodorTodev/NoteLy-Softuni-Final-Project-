@@ -1,17 +1,16 @@
 ﻿@model NoteLy.Web.ViewModels.Playlist.EditPlaylistViewModel
+<div class="EditPlaylistInputDiv">
+    <h2 class="EditPlaylistTitle">Edit Playlist</h2>
 
-<h2>Edit Playlist</h2>
-
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-
-    <button type="submit">Save</button>
-</form>
-
-<a asp-controller="Home" asp-action="Index">Back</a>
+    <form class="EditPlaylistForm" asp-action="Edit" method="post">
+        <div class="EditPlaylistInputField">
+            <label class="text-white" asp-for="Name">Playlist Name</label>
+            <input asp-for="Name" class="EditPlaylistNameInput form-control" placeholder="Enter Playlist Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="EditPlaylistInputBtns">
+            <a class="EditPlaylistBackBtn" asp-controller="Home" asp-action="Index">Back</a>
+            <button type="submit" class="btn btn-primary EditPlaylist">Save</button>
+        </div>
+    </form>
+</div>
