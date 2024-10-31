@@ -4,12 +4,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="header">
-    <partial name="Header"/>
-</div>
-<div class="sections">
-    <partial name="PlayListSection" model="@Model.PlayLists" />
-    <partial name="SongsSection" model="@Model.Songs" />
-    <partial name="CommentSection" model="@Model.Comments" />
-</div>
-<div class="songControls"></div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="header">
+        <partial name="Header"/>
+    </div>
+    <div class="sections">
+        <partial name="PlayListSection" model="@Model.PlayLists" />
+        <partial name="SongsSection" model="@Model.Songs" />
+        <partial name="CommentSection" model="@Model.Comments" />
+    </div>
+    <div class="songControls"></div>
+}
+else
+{
+    <div class="mainNotLoggedIn">
+        <partial name="LogIn" />
+    </div>
+}
