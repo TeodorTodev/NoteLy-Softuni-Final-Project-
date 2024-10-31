@@ -61,7 +61,7 @@
     bottom: 7px;
     color: white;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .fa-magnifying-glass:hover {
@@ -81,7 +81,7 @@
 .addPlayList {
     color: white;
     margin-right: 25px;
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .addPlayList:hover {
@@ -160,7 +160,7 @@
 
 .editPlaylist {
     color: white;
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .editPlaylist:hover {
@@ -169,7 +169,7 @@
 
 .deletePlaylist {
     color: rgb(255 87 51);
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .deletePlaylist:hover {

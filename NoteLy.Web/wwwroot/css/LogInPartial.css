@@ -20,15 +20,17 @@
     width: 100%;
     text-align: center;
     display: block;
-    transition: 0.3s;
+    transition: 0.15s;
     text-shadow: 0px 0px 20px #333;
 }
 
 .register:hover, .Login:hover {
+    color: rgb(50, 50, 255);
 }
 
 .nav-link {
     color: white;
+    transition: 0.15s;
 }
 
 .nav-link:hover {

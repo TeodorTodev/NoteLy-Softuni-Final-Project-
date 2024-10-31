@@ -57,7 +57,7 @@
     padding: 6px 12px 6px 12px;
     border-radius: 3px;
     color: #333;
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .EditPlaylistBackBtn:hover {
@@ -69,6 +69,7 @@
     margin-top: 0;
     background-color: white;
     color: #333;
+    transition: 0.15s;
 }
 
 .EditPlaylist:hover {

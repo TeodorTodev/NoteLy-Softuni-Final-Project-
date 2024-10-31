@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\css\\Index.css"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\LogIn.css",
+      "PackagePath": "staticwebassets\\css\\LogIn.css"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\LogInPartial.css",
       "PackagePath": "staticwebassets\\css\\LogInPartial.css"
     },

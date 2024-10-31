@@ -50,7 +50,7 @@
 
 .addSong i {
     margin-left: 110px;
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .addSong i:hover {
@@ -126,7 +126,7 @@
 
 .renderComments i {
     color: white;
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .renderComments i:hover {
@@ -142,7 +142,7 @@
 
 .editSong {
     color: white;
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .editSong:hover {
@@ -151,7 +151,7 @@
 
 .deleteSong {
     color: rgb(255 87 51);
-    transition: 0.3s;
+    transition: 0.15s;
 }
 
 .deleteSong:hover {

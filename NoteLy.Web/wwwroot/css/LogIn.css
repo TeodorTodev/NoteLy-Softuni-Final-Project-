@@ -1,0 +1,68 @@
+﻿.LogInMain {
+    padding: 0px 10px 0px 10px;
+
+    height: 500px;
+    width: 500px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.LogInTitle {
+    margin: 0;
+    height: 20%;
+    line-height: 2.3;
+    text-shadow: 0px 0px 30px #333;
+    text-align: center;
+    color: white;
+}
+
+.LogInForm {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.emailInput, .passwordInput {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logIn {
+    background-color: white;
+    color: #333;
+    transition: 0.15s;
+}
+
+.logIn:hover {
+    background-color: rgb(255, 255, 255, 0.8);
+    color: #333;
+}
+
+.registerDiv p{
+    text-align: center;
+}
+
+.Register {
+    text-decoration: none;
+    color: rgba(190, 190, 190);
+    transition: 0.15s;
+}
+
+.Register:hover {
+    color: rgba(255, 255, 255);
+}
