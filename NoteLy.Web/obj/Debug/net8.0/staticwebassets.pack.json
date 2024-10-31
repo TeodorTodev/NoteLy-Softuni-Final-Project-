@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\css\\PlaylistSection.css"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Register.css",
+      "PackagePath": "staticwebassets\\css\\Register.css"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\SongsSection.css",
       "PackagePath": "staticwebassets\\css\\SongsSection.css"
     },

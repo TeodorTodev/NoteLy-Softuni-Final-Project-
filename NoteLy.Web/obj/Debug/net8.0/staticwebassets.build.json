@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z99rAv+QSXS19D2pfcs/Uey/FjMVxlBM9eDIUi9hGiA=",
+  "Hash": "OauIoSE+WRIpkl+K2I+BVSqqKrhy95Q8ujCUNkQp6YY=",
   "Source": "NoteLy.Web",
   "BasePath": "_content/NoteLy.Web",
   "Mode": "Default",
@@ -1440,6 +1440,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\PlaylistSection.css"
+    },
+    {
+      "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Register.css",
+      "SourceId": "NoteLy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\",
+      "BasePath": "_content/NoteLy.Web",
+      "RelativePath": "css/Register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Register.css"
     },
     {
       "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\site.css",
