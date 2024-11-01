@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Resources\\Background.jpg"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\Note.svg",
+      "PackagePath": "staticwebassets\\Resources\\Note.svg"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\noun-note-7130559.svg",
       "PackagePath": "staticwebassets\\Resources\\noun-note-7130559.svg"
     },

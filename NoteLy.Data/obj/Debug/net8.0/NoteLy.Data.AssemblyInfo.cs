@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NoteLy.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb7f2f3a9c9b4e82d057938d787e0f4b0f381752")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+487b80563d9169e6937be69a60b4774ee04757bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("NoteLy.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NoteLy.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
