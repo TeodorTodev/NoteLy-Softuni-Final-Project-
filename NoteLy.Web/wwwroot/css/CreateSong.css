@@ -65,6 +65,7 @@
     border-radius: 3px;
     color: #333;
     transition: 0.15s;
+    border-radius: 10px;
 }
 
 .SongBackBtn:hover {
@@ -77,6 +78,7 @@
     background-color: white;
     color: #333;
     transition: 0.15s;
+    border-radius: 10px;
 }
 
 .createSong:hover {

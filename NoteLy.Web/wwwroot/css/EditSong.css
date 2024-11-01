@@ -65,7 +65,7 @@
     background-color: white;
     text-decoration: none;
     padding: 6px 12px 6px 12px;
-    border-radius: 3px;
+    border-radius: 10px;
     color: #333;
     transition: 0.15s;
 }
@@ -80,6 +80,7 @@
     background-color: white;
     color: #333;
     transition: 0.15s;
+    border-radius: 10px;
 }
 
 .EditSong:hover {

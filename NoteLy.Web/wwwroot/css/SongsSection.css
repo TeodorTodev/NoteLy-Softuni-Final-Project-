@@ -44,12 +44,12 @@
 }
 
 .textExplainDiv i {
-    margin-left: 815px;
+    margin-left: 775px;
     line-height: 1.5;
 }
 
 .addSong i {
-    margin-left: 110px;
+    margin-left: 150px;
     transition: 0.15s;
 }
 
@@ -102,7 +102,7 @@
 
 .SongInfo {
     margin-left: 20px;
-    width: 75%;
+    width: 70%;
 }
 
 .Name {
@@ -118,6 +118,9 @@
 .Duration {
     margin: 0;
     color: white;
+    width: 5.5%;
+    text-align: center;
+    text-shadow: 0px 0px 10px #333;
 }
 
 .renderComments {
@@ -136,7 +139,7 @@
 .SongCardActions {
     display: flex;
     flex-direction: column;
-    margin-left: 45px;
+    margin-left: 65px;
     justify-content: space-around
 }
 
