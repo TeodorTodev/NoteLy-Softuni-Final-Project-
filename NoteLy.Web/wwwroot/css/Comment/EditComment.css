@@ -28,6 +28,10 @@
     height: 70%;
 }
 
+.CommentInputField {
+    height: 25%;
+}
+
 .EditCommentNameInput {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -43,9 +47,10 @@
 }
 
 .EditCommentInputBtns {
-    margin-top: 235px;
     display: flex;
     justify-content: space-between;
+    align-items: end;
+    height: 72%;
 }
 
 .EditCommentBackBtn {

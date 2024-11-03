@@ -32,6 +32,10 @@
     height: 70%;
 }
 
+.PlaylistInputField {
+    height: 25%
+}
+
 .PlaylistNameInput {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -47,9 +51,10 @@
 }
 
 .PlaylistInputBtns {
-    margin-top: 235px;
     display: flex;
     justify-content: space-between;
+    align-items: end;
+    height: 72%;
 }
 
 .PlaylistBackBtn {

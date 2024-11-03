@@ -13,13 +13,14 @@ namespace NoteLy.Web.ViewModels.Song
         [Required(ErrorMessage = DurationRequiredMessage)]
         public TimeSpan Duration { get; set; }
 
+        [Required(ErrorMessage = ArtistsRequiredMessage)]
+        public string ArtistNames { get; set; } = null!;
+
         [Required(ErrorMessage = UrlRequiredMessage)]
         public string FilePath { get; set; } = null!;
 
         [Required(ErrorMessage = PlaylistRequiredMessage)]
         public string PlayListName { get; set; } = null!;
 
-        [Required(ErrorMessage = ArtistsRequiredMessage)]
-        public string ArtistNames { get; set; } = null!;
     }
 }

@@ -28,6 +28,10 @@
     height: 80%;
 }
 
+.CommentInputFields {
+    height: 46%;
+}
+
 .CommentNameInput, .CommentSongNameInput {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -47,9 +51,10 @@
 }
 
 .CommentInputBtns {
-    margin-top: 220px;
     display: flex;
     justify-content: space-between;
+    height: 52%;
+    align-items: end;
 }
 
 .CommentBackBtn {

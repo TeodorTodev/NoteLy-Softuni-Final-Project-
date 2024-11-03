@@ -31,6 +31,10 @@
     height: 70%;
 }
 
+.EditPlaylistInputField {
+    height: 25%;
+}
+
 .EditPlaylistNameInput {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -46,9 +50,10 @@
 }
 
 .EditPlaylistInputBtns {
-    margin-top: 235px;
     display: flex;
     justify-content: space-between;
+    align-items: end;
+    height: 72%;
 }
 
 .EditPlaylistBackBtn {
