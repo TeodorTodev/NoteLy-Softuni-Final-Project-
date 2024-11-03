@@ -12,8 +12,8 @@ using NoteLy.Data;
 namespace NoteLy.Data.Migrations
 {
     [DbContext(typeof(NoteLyDbContext))]
-    [Migration("20241012144315_ReplaceUserWithApplicationUser")]
-    partial class ReplaceUserWithApplicationUser
+    [Migration("20241103101558_ChangeEntityConfigurationsDeleteBehaviorsToNoAction")]
+    partial class ChangeEntityConfigurationsDeleteBehaviorsToNoAction
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,6 +222,29 @@ namespace NoteLy.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("NoteLy.Data.Models.PlayList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("ApplicationUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("PlayLists");
+                });
+
             modelBuilder.Entity("Notely.Data.Models.Artist", b =>
                 {
                     b.Property<int>("Id")
@@ -263,7 +286,7 @@ namespace NoteLy.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<Guid?>("ApplicationUserId")
+                    b.Property<Guid>("ApplicationUserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("SongId")
@@ -300,29 +323,6 @@ namespace NoteLy.Data.Migrations
                     b.ToTable("Genres");
                 });
 
-            modelBuilder.Entity("Notely.Data.Models.PlayList", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<Guid?>("ApplicationUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("PlayLists");
-                });
-
             modelBuilder.Entity("Notely.Data.Models.Song", b =>
                 {
                     b.Property<int>("Id")
@@ -330,6 +330,9 @@ namespace NoteLy.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("ApplicationUserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<TimeSpan>("Duration")
                         .HasColumnType("time");
@@ -347,6 +350,8 @@ namespace NoteLy.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("PlayListId");
 
@@ -452,6 +457,17 @@ namespace NoteLy.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("NoteLy.Data.Models.PlayList", b =>
+                {
+                    b.HasOne("NoteLy.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("Notely.Data.Models.ArtistSong", b =>
                 {
                     b.HasOne("Notely.Data.Models.Artist", "Artist")
@@ -463,7 +479,7 @@ namespace NoteLy.Data.Migrations
                     b.HasOne("Notely.Data.Models.Song", "Song")
                         .WithMany("Artists")
                         .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Artist");
@@ -473,33 +489,38 @@ namespace NoteLy.Data.Migrations
 
             modelBuilder.Entity("Notely.Data.Models.Comment", b =>
                 {
-                    b.HasOne("NoteLy.Data.Models.ApplicationUser", null)
+                    b.HasOne("NoteLy.Data.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Comments")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Notely.Data.Models.Song", "Song")
                         .WithMany("Comments")
                         .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Song");
                 });
 
-            modelBuilder.Entity("Notely.Data.Models.PlayList", b =>
-                {
-                    b.HasOne("NoteLy.Data.Models.ApplicationUser", null)
-                        .WithMany("PlayLists")
-                        .HasForeignKey("ApplicationUserId");
-                });
-
             modelBuilder.Entity("Notely.Data.Models.Song", b =>
                 {
-                    b.HasOne("Notely.Data.Models.PlayList", "PlayList")
+                    b.HasOne("NoteLy.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Songs")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NoteLy.Data.Models.PlayList", "PlayList")
                         .WithMany("Songs")
                         .HasForeignKey("PlayListId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("PlayList");
                 });
@@ -546,7 +567,12 @@ namespace NoteLy.Data.Migrations
                 {
                     b.Navigation("Comments");
 
-                    b.Navigation("PlayLists");
+                    b.Navigation("Songs");
+                });
+
+            modelBuilder.Entity("NoteLy.Data.Models.PlayList", b =>
+                {
+                    b.Navigation("Songs");
                 });
 
             modelBuilder.Entity("Notely.Data.Models.Artist", b =>
@@ -557,11 +583,6 @@ namespace NoteLy.Data.Migrations
             modelBuilder.Entity("Notely.Data.Models.Genre", b =>
                 {
                     b.Navigation("SongGenres");
-                });
-
-            modelBuilder.Entity("Notely.Data.Models.PlayList", b =>
-                {
-                    b.Navigation("Songs");
                 });
 
             modelBuilder.Entity("Notely.Data.Models.Song", b =>

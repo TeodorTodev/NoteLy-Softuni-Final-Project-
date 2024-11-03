@@ -7,5 +7,6 @@
         public string? Text { get; set; }
 
         public string ApplicationUserName { get; set; } = null!;
+        public bool IsCreator { get; set; }
     }
 }

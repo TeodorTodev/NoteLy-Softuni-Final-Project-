@@ -39,6 +39,7 @@ namespace NoteLy.Data
             builder.ApplyConfiguration(new TagSongConfiguration());
             builder.ApplyConfiguration(new SongConfiguration());
             builder.ApplyConfiguration(new PlayListConfiguration());
+            builder.ApplyConfiguration(new CommentConfiguration());
 
             //TagsSeed.Seed(builder);
             //GenresSeed.Seed(builder);

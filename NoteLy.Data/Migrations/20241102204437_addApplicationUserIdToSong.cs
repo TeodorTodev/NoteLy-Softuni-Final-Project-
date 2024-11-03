@@ -6,11 +6,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NoteLy.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class ReplaceUserWithApplicationUser : Migration
+    public partial class addApplicationUserIdToSong : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Comments_Songs_SongId",
+                table: "Comments");
+
             migrationBuilder.DropForeignKey(
                 name: "FK_Comments_Users_UserId",
                 table: "Comments");
@@ -40,15 +44,29 @@ namespace NoteLy.Data.Migrations
 
             migrationBuilder.AddColumn<Guid>(
                 name: "ApplicationUserId",
+                table: "Songs",
+                type: "uniqueidentifier",
+                nullable: false,
+                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
+
+            migrationBuilder.AddColumn<Guid>(
+                name: "ApplicationUserId",
                 table: "PlayLists",
                 type: "uniqueidentifier",
-                nullable: true);
+                nullable: false,
+                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
 
             migrationBuilder.AddColumn<Guid>(
                 name: "ApplicationUserId",
                 table: "Comments",
                 type: "uniqueidentifier",
-                nullable: true);
+                nullable: false,
+                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Songs_ApplicationUserId",
+                table: "Songs",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PlayLists_ApplicationUserId",
@@ -65,6 +83,14 @@ namespace NoteLy.Data.Migrations
                 table: "Comments",
                 column: "ApplicationUserId",
                 principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Comments_Songs_SongId",
+                table: "Comments",
+                column: "SongId",
+                principalTable: "Songs",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
@@ -72,7 +98,16 @@ namespace NoteLy.Data.Migrations
                 table: "PlayLists",
                 column: "ApplicationUserId",
                 principalTable: "AspNetUsers",
-                principalColumn: "Id");
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Songs_AspNetUsers_ApplicationUserId",
+                table: "Songs",
+                column: "ApplicationUserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
@@ -83,8 +118,20 @@ namespace NoteLy.Data.Migrations
                 table: "Comments");
 
             migrationBuilder.DropForeignKey(
+                name: "FK_Comments_Songs_SongId",
+                table: "Comments");
+
+            migrationBuilder.DropForeignKey(
                 name: "FK_PlayLists_AspNetUsers_ApplicationUserId",
                 table: "PlayLists");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Songs_AspNetUsers_ApplicationUserId",
+                table: "Songs");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Songs_ApplicationUserId",
+                table: "Songs");
 
             migrationBuilder.DropIndex(
                 name: "IX_PlayLists_ApplicationUserId",
@@ -93,6 +140,10 @@ namespace NoteLy.Data.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_Comments_ApplicationUserId",
                 table: "Comments");
+
+            migrationBuilder.DropColumn(
+                name: "ApplicationUserId",
+                table: "Songs");
 
             migrationBuilder.DropColumn(
                 name: "ApplicationUserId",
@@ -149,6 +200,14 @@ namespace NoteLy.Data.Migrations
                 name: "IX_Users_ApplicationUserId",
                 table: "Users",
                 column: "ApplicationUserId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Comments_Songs_SongId",
+                table: "Comments",
+                column: "SongId",
+                principalTable: "Songs",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Comments_Users_UserId",

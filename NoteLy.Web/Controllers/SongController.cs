@@ -7,15 +7,19 @@ using System.Security.Claims;
 using NuGet.Packaging;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
+using NoteLy.Data.Models;
 
 namespace NoteLy.Web.Controllers
 {
     public class SongController : Controller
     {
         private readonly NoteLyDbContext _dbContext;
-        public SongController(NoteLyDbContext dbContext)
+        private readonly UserManager<ApplicationUser> userManager;
+        public SongController(NoteLyDbContext dbContext, UserManager<ApplicationUser> _userManager)
         {
             this._dbContext = dbContext;
+            this.userManager = _userManager;
         }
 
         [HttpGet]
@@ -27,6 +31,7 @@ namespace NoteLy.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(AddSongInputModel songViewModel)
         {
+            var userId = Guid.Parse(userManager.GetUserId(User));
             if (!_dbContext.PlayLists.Any(p => p.Name == songViewModel.PlayListName))
             {
                 return RedirectToAction("Index", "Home");
@@ -37,7 +42,8 @@ namespace NoteLy.Web.Controllers
                 Name = songViewModel.Name,
                 Duration = songViewModel.Duration,
                 FilePath = songViewModel.FilePath,
-                PlayListId = playlist.Id
+                PlayListId = playlist.Id,
+                ApplicationUserId = userId,
             };
 
             _dbContext.Songs.Add(newSong);
@@ -184,9 +190,31 @@ namespace NoteLy.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var song = await _dbContext.Songs
-                .FirstOrDefaultAsync(s => s.Id == id);
+            //var song = await _dbContext.Songs
+            //    .FirstOrDefaultAsync(s => s.Id == id);
 
+            //_dbContext.Songs.Remove(song);
+            //await _dbContext.SaveChangesAsync();
+
+            //return RedirectToAction("Index", "Home");
+
+
+            var song = await _dbContext.Songs
+            .Include(s => s.Comments)
+            .FirstOrDefaultAsync(s => s.Id == id);
+
+            if (song == null)
+            {
+                return NotFound();
+            }
+
+            // Delete related comments
+            if (song.Comments != null)
+            {
+                _dbContext.Comments.RemoveRange(song.Comments);
+            }
+
+            // Delete the song
             _dbContext.Songs.Remove(song);
             await _dbContext.SaveChangesAsync();
 

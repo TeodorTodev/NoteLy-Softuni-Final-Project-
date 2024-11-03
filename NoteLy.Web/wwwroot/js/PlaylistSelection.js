@@ -11,5 +11,6 @@ playlists.forEach(playlist => {
         let nameValue = selectedCollectionName.textContent;
         let playListName = document.getElementsByClassName('PlayListName')[0];
         playListName.textContent = nameValue;
+
     });
 });

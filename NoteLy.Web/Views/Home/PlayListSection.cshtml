@@ -1,7 +1,9 @@
 ﻿﻿@using NoteLy.Web.ViewModels.Playlist
+@using System.Security.Claims
 @model IEnumerable<CollectionCardViewModel>
 @{
     ViewData["Title"] = "Home Page";
+    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 
     <div class="PlaylistSection">
@@ -16,21 +18,62 @@
             <a class="addPlayList" asp-area="" asp-controller="PlayList" asp-action="Create"><i class="fa-solid fa-plus"></i></a>
         </div>
         <div class="PlaylistsDiv">
-        @foreach (var playlist in Model)
+            @foreach (var playlist in Model)
             {
-                <div class="Playlist">
+                <div class="Playlist" data-id="@playlist.Id" onclick="loadSongs('@playlist.Id')">
                     <img class="icon" src="~/Resources/Note.svg" alt="Alternate Text" />
                     <span class="PlInfoDiv">
                         <p class="Name" style="letter-spacing: 1px; font-weight: 500;">@playlist.Name</p>
                     </span>
-                    <div class="PlaylistCardActions">
-                        <td>
-                            <a class="editPlaylist" asp-controller="PlayList" asp-action="Edit" asp-route-id="@playlist.Id"><i class="fa-solid fa-pen"></i></a>
+                    @if (playlist.ApplicationUserId.ToString() == currentUserId)
+                    {
+                        <div class="PlaylistCardActions">
+                            <td>
+                                <a class="editPlaylist" asp-controller="PlayList" asp-action="Edit" asp-route-id="@playlist.Id"><i class="fa-solid fa-pen"></i></a>
 
-                            <a class="deletePlaylist" asp-controller="PlayList" asp-action="Delete" asp-route-id="@playlist.Id"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </div>
+                                <a class="deletePlaylist" asp-controller="PlayList" asp-action="Delete" asp-route-id="@playlist.Id"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </div>
+                    }
                 </div>
+                @* <a href="@Url.Action("SongsSection", "Home", new { playlistId = playlist.Id })" class="Playlist"> 
+                </a> *@
             }
         </div>
     </div>
+<script>
+    function formatDuration(duration) {
+        // Check if the duration is a string and parse it
+        if (typeof duration === 'string') {
+            // Split the duration by ':'
+            const timeParts = duration.split(':');
+            let hours = 0, minutes = 0, seconds = 0;
+
+            // Depending on the length of timeParts, assign values
+            if (timeParts.length === 3) {
+                // HH:MM:SS format
+                hours = parseInt(timeParts[0], 10);
+                minutes = parseInt(timeParts[1], 10);
+                seconds = parseInt(timeParts[2], 10);
+            } else if (timeParts.length === 2) {
+                // MM:SS format
+                minutes = parseInt(timeParts[0], 10);
+                seconds = parseInt(timeParts[1], 10);
+            } else if (timeParts.length === 1) {
+                // SS format
+                seconds = parseInt(timeParts[0], 10);
+            }
+
+            // Format the output string
+            // If hours is present, format as HH:MM:SS; otherwise, MM:SS
+            if (hours > 0) {
+                return `${hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            } else {
+                return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            }
+        } else {
+            console.error('Expected a string for duration, but received:', typeof duration);
+            return '';
+        }
+    }
+</script>

@@ -27,6 +27,11 @@ namespace Notely.Data.Models
         public PlayList PlayList { get; set; } = null!;
 
         [Required]
+        public Guid ApplicationUserId { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; } = null!;
+
+        [Required]
         public ICollection<ArtistSong> Artists { get; set; } = new HashSet<ArtistSong>();
 
         public ICollection<Comment>? Comments { get; set; } = new HashSet<Comment>();

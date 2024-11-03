@@ -12,7 +12,6 @@ namespace NoteLy.Web.ViewModels
     public class CompositeViewModel
     {
         public IEnumerable<CollectionCardViewModel>? PlayLists { get; set; }
-        public IEnumerable<SongCardViewModel>? Songs { get; set; }
         public IEnumerable<CommentCardViewModel>? Comments { get; set; }
     }
 }

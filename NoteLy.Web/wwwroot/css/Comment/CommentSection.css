@@ -47,6 +47,32 @@
     align-items: center;
 }
 
+.noSongSelectedDiv {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noSongSelectedMessage {
+    margin: 0;
+    color: white;
+    font-size: 30px;
+}
+
+.emptyCommentsDiv {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyCommentsMessage {
+    margin: 0;
+    color: white;
+    font-size: 25px;
+}
+
 .Comment {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;

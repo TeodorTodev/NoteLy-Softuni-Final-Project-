@@ -17,7 +17,7 @@ namespace NoteLy.Data.Configuration
                 .HasOne(s => s.PlayList)
                 .WithMany(a => a.Songs)
                 .HasForeignKey(ars => ars.PlayListId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

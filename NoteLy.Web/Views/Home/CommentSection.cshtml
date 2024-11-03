@@ -1,5 +1,5 @@
 ﻿@using NoteLy.Web.ViewModels.Comment
-@model IEnumerable<CommentCardViewModel>
+@* @model IEnumerable<CommentCardViewModel> *@
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,7 +11,7 @@
         <a class="addComment" asp-area="" asp-controller="Comment" asp-action="Create"><i class="fa-solid fa-plus"></i></a>
     </div>
     <div class="CommentsDiv">
-        @foreach (var comment in Model)
+        @* @foreach (var comment in Model)
         {
             <div class="Comment">
                 <div class="UserNameDiv">
@@ -29,6 +29,9 @@
                     </div>
                 </div>
             </div>
-        }
+        } *@
+        <div class="noSongSelectedDiv">
+            <p class="noSongSelectedMessage">No Song selected</p>
+        </div>
     </div>
 </div>

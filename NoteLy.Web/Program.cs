@@ -25,6 +25,12 @@ namespace NoteLy.Web
                 .AddRoles<IdentityRole<Guid>>()
                 .AddSignInManager<SignInManager<ApplicationUser>>()
                 .AddUserManager<UserManager<ApplicationUser>>();
+
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Home/LogIn";
+            });
+
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
 

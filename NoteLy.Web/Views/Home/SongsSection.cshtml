@@ -1,12 +1,12 @@
 ﻿@using NoteLy.Web.ViewModels.Song
-@model IEnumerable<SongCardViewModel>
+@* @model IEnumerable<SongCardViewModel> *@
 @{
     ViewData["Title"] = "Privacy Policy";
 }
 
     <div class="SongsSection">
         <div class="collectionNameDiv">
-        <p class="PlayListName">PlayListName</p>
+        <p class="PlayListName"></p>
         </div>
         <div class="textExplainDiv">
             <p class="numberSign">&#x2116</p>
@@ -15,9 +15,11 @@
             <a class="addSong" asp-area="" asp-controller="Song" asp-action="Create"><i class="fa-solid fa-plus"></i></a>
         </div>
         <div class="Songs">
+            @* @{
+            int counter = 1;
+            }
             @foreach (var song in Model)
             {
-                int counter = 1;
                 string formattedTime = song.Duration.Hours > 0
                 ? $"{song.Duration.Hours}:{song.Duration.Minutes:D2}:{song.Duration.Seconds:D2}"
                 : $"{song.Duration.Minutes}:{song.Duration.Seconds:D2}";
@@ -36,6 +38,9 @@
                     </div>
                 </div>
                 counter++;
-            }
+            } *@
+            <div class="noPlaylistSelectedDiv">
+                <p class="noPlaylistSelectedMessage">No Playlist selected</p>
+            </div>
         </div>
     </div>

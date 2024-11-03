@@ -1,61 +1,53 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NoteLy.Data;
+using NoteLy.Data.Models;
 using NoteLy.Web.ViewModels;
 using NoteLy.Web.ViewModels.Comment;
 using NoteLy.Web.ViewModels.Playlist;
 using NoteLy.Web.ViewModels.Song;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace NoteLy.Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly NoteLyDbContext dbContext;
-        public HomeController(NoteLyDbContext dbContext)
+        private readonly UserManager<ApplicationUser> userManager;
+        public HomeController(NoteLyDbContext _dbContext, UserManager<ApplicationUser> _userManager)
         {
-            this.dbContext = dbContext;
+            this.dbContext = _dbContext;
+            this.userManager = _userManager;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(int songId)
+        [Authorize]
+        public async Task<IActionResult> Index()
         {
+            //var userId = Guid.Parse(userManager.GetUserId(User));
             IEnumerable<CollectionCardViewModel> playlists = await this.dbContext
                 .PlayLists
+                //.Where(p => p.ApplicationUserId == userId)
                 .Select(c => new CollectionCardViewModel()
                 {
                     Id = c.Id.ToString(),
                     Name = c.Name,
+                    ApplicationUserId = c.ApplicationUserId,
                 })
                 .ToListAsync();
 
-            IEnumerable<SongCardViewModel> songs = await this.dbContext
-                .Songs
-                .Select(s => new SongCardViewModel()
-                {
-                    Id = s.Id.ToString(),
-                    Name = s.Name,
-                    Artists = s.Artists.Select(a => a.Artist.UserName).ToArray(),
-                    Duration = s.Duration,
-                })
-                .ToListAsync();
+            
 
-            IEnumerable<CommentCardViewModel> comments = await this.dbContext
-                .Comments
-                .Where(c => c.SongId == songId)
-                .Select(s => new CommentCardViewModel()
-                {
-                    Id = s.Id.ToString(),
-                    Text = s.Text,
-                    ApplicationUserName = dbContext.Users.FirstOrDefault(u => u.Id == s.ApplicationUserId).UserName
-                })
-                .ToListAsync();
+            
 
             var viewModel = new CompositeViewModel
             {
                 PlayLists = playlists,
-                Songs = songs,
-                Comments = comments
+                //Songs = songs,
+                //Comments = comments
             };
 
             return View(viewModel);
@@ -98,26 +90,67 @@ namespace NoteLy.Web.Controllers
 
         }
 
-        public IActionResult SongsSection()
+        public async Task<IActionResult> SongsSection(int playlistId)
         {
+            //var userId = Guid.Parse(userManager.GetUserId(User));
             //IEnumerable<SongCardViewModel> songs = await this.dbContext
             //    .Songs
-            //    .Include(s => s.Album)
-            //    .Select(c => new SongCardViewModel()
+            //    .Where(s => s.PlayListId == playlistId)
+            //    .Select(s => new SongCardViewModel()
             //    {
-            //        Id = c.Id.ToString(),
-            //        Name = c.Name,
-            //        Artists = c.Artists.Select(a => a.Artist.UserName).ToArray(),
-            //        AlbumName = c.Album.Name
+            //        Id = s.Id.ToString(),
+            //        Name = s.Name,
+            //        Artists = s.Artists.Select(a => a.Artist.UserName).ToArray(),
+            //        Duration = s.Duration,
             //    })
-            //    .ToArrayAsync();
+            //    .ToListAsync();
 
-            return View(); // songs
+            var playlist = await dbContext.PlayLists
+            .Include(p => p.Songs)
+            .ThenInclude(s => s.Artists)
+            .ThenInclude(a => a.Artist) // Load artists via the ArtistsSongs mapping table
+            .FirstOrDefaultAsync(p => p.Id == playlistId);
+
+            if (playlist == null)
+            {
+                return NotFound();
+            }
+
+            // Get the current user's ID
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Prepare the songs data to send back
+            var songs = playlist.Songs.Select(s => new SongCardViewModel()
+            {
+                Id = s.Id.ToString(),
+                Name = s.Name,
+                Artists = s.Artists.Select(a => a.Artist.UserName).ToArray(),
+                Duration = s.Duration,
+                IsCreator = s.ApplicationUserId.ToString() == currentUserId,
+                IsPlaylistCreator = playlist.ApplicationUserId.ToString() == currentUserId
+            });
+
+            //return View(songs); // songs
+            return Json(songs);
         }
 
-        public IActionResult CommentSection()
+        public async Task<IActionResult> CommentSection(int songId)
         {
-            return View();
+            var currentUserId = Guid.Parse(userManager.GetUserId(User));
+            IEnumerable<CommentCardViewModel> comments = await this.dbContext
+                .Comments
+                .Where(c => c.SongId == songId)
+                .Select(s => new CommentCardViewModel()
+                {
+                    Id = s.Id.ToString(),
+                    Text = s.Text,
+                    ApplicationUserName = dbContext.Users.FirstOrDefault(u => u.Id == s.ApplicationUserId).UserName,
+                    IsCreator = s.ApplicationUserId == currentUserId
+                })
+                .ToListAsync();
+
+            //return View(comments);
+            return Json(comments);
         }
 
         public IActionResult SongControls()

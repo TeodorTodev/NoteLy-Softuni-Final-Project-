@@ -13,36 +13,16 @@
       "PackagePath": "staticwebassets\\Resources\\Note.svg"
     },
     {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\noun-note-7130559.svg",
-      "PackagePath": "staticwebassets\\Resources\\noun-note-7130559.svg"
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Comment\\CommentSection.css",
+      "PackagePath": "staticwebassets\\css\\Comment\\CommentSection.css"
     },
     {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\CommentSection.css",
-      "PackagePath": "staticwebassets\\css\\CommentSection.css"
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Comment\\CreateComment.css",
+      "PackagePath": "staticwebassets\\css\\Comment\\CreateComment.css"
     },
     {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\CreateComment.css",
-      "PackagePath": "staticwebassets\\css\\CreateComment.css"
-    },
-    {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\CreatePlaylist.css",
-      "PackagePath": "staticwebassets\\css\\CreatePlaylist.css"
-    },
-    {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\CreateSong.css",
-      "PackagePath": "staticwebassets\\css\\CreateSong.css"
-    },
-    {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\EditComment.css",
-      "PackagePath": "staticwebassets\\css\\EditComment.css"
-    },
-    {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\EditPlaylist.css",
-      "PackagePath": "staticwebassets\\css\\EditPlaylist.css"
-    },
-    {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\EditSong.css",
-      "PackagePath": "staticwebassets\\css\\EditSong.css"
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Comment\\EditComment.css",
+      "PackagePath": "staticwebassets\\css\\Comment\\EditComment.css"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Global.css",
@@ -65,16 +45,32 @@
       "PackagePath": "staticwebassets\\css\\LogInPartial.css"
     },
     {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\PlaylistSection.css",
-      "PackagePath": "staticwebassets\\css\\PlaylistSection.css"
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Playlist\\CreatePlaylist.css",
+      "PackagePath": "staticwebassets\\css\\Playlist\\CreatePlaylist.css"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Playlist\\EditPlaylist.css",
+      "PackagePath": "staticwebassets\\css\\Playlist\\EditPlaylist.css"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Playlist\\PlaylistSection.css",
+      "PackagePath": "staticwebassets\\css\\Playlist\\PlaylistSection.css"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Register.css",
       "PackagePath": "staticwebassets\\css\\Register.css"
     },
     {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\SongsSection.css",
-      "PackagePath": "staticwebassets\\css\\SongsSection.css"
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Song\\CreateSong.css",
+      "PackagePath": "staticwebassets\\css\\Song\\CreateSong.css"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Song\\EditSong.css",
+      "PackagePath": "staticwebassets\\css\\Song\\EditSong.css"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Song\\SongsSection.css",
+      "PackagePath": "staticwebassets\\css\\Song\\SongsSection.css"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\site.css",
@@ -83,6 +79,14 @@
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\LoadComments.js",
+      "PackagePath": "staticwebassets\\js\\LoadComments.js"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\LoadSongs.js",
+      "PackagePath": "staticwebassets\\js\\LoadSongs.js"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\PlaylistSelection.js",

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NoteLy.Data;
 
@@ -11,9 +12,11 @@ using NoteLy.Data;
 namespace NoteLy.Data.Migrations
 {
     [DbContext(typeof(NoteLyDbContext))]
-    partial class NoteLyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241102204437_addApplicationUserIdToSong")]
+    partial class addApplicationUserIdToSong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -476,7 +479,7 @@ namespace NoteLy.Data.Migrations
                     b.HasOne("Notely.Data.Models.Song", "Song")
                         .WithMany("Artists")
                         .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Artist");
@@ -514,7 +517,7 @@ namespace NoteLy.Data.Migrations
                     b.HasOne("NoteLy.Data.Models.PlayList", "PlayList")
                         .WithMany("Songs")
                         .HasForeignKey("PlayListId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("ApplicationUser");
