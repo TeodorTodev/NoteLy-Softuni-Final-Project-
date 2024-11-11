@@ -13,7 +13,7 @@ namespace NoteLy.Web.ViewModels.Song
         public string Name { get; set; } = null!;
 
         [Required(ErrorMessage = DurationRequiredMessage)]
-        public TimeSpan Duration { get; set; }
+        public string Duration { get; set; } = null!;
 
         [Required(ErrorMessage = UrlRequiredMessage)]
         public string FilePath { get; set; } = null!;

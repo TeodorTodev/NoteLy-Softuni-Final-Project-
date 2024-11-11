@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "NoteLy.Web.Controllers.SongControlsController",
+    "Method": "ConvertToMp3",
+    "RelativePath": "api/SongControls/ConvertToMp3",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "songId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

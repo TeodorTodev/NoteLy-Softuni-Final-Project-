@@ -30,9 +30,13 @@
                 <span asp-validation-for="FilePath" class="text-danger"></span>
             </div>
             <div>
-                <label class="text-white" asp-for="PlayListName">Playlist Name</label>
+                @* <label class="text-white" asp-for="PlayListName">Playlist Name</label>
                 <input asp-for="PlayListName" class="CommonSongInputFieldClass form-control" placeholder="Enter Playlist Name" />
-                <span asp-validation-for="PlayListName" class="text-danger"></span>
+                <span asp-validation-for="PlayListName" class="text-danger"></span> *@
+                <select id="playlistDropdown" name="SelectedPlaylistId">
+                    <option value="">Select a Playlist</option>
+                </select>
+                @Html.ValidationMessage("SelectedPlaylistId", "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="SongInputBtns">

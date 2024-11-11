@@ -14,9 +14,13 @@
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
             <div class="CommentSongNameInputDivClass">
-                <label class="text-white" asp-for="SongName">Song Name</label>
+                @* <label class="text-white" asp-for="SongName">Song Name</label>
                 <input asp-for="SongName" class="CommentSongNameInput form-control" placeholder="Enter a song name" />
-                <span asp-validation-for="SongName" class="text-danger"></span>
+                <span asp-validation-for="SongName" class="text-danger"></span> *@
+                <select id="songDropdown" name="SelectedSongId">
+                    <option value="">Select a Song</option>
+                </select>
+                @Html.ValidationMessage("SelectedSongId", "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="CommentInputBtns">

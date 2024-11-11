@@ -17,24 +17,33 @@ namespace NoteLy.Web.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetSongs()
+        {
+            var songs = await _dbContext.Songs.ToListAsync();
+            return Json(songs);
+        }
+
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(AddCommentInputModel inputModel)
+        public async Task<IActionResult> Create(string SelectedSongId, AddCommentInputModel inputModel)
         {
-            if (!_dbContext.Songs.Any(s => s.Name == inputModel.SongName))
+
+            if (string.IsNullOrEmpty(SelectedSongId))
             {
-                return RedirectToAction("Index", "Home");
+                ModelState.AddModelError("SelectedSongId", "Please select a song.");
+                return View(inputModel); // Return the view with the error message
             }
+
             var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            var song = _dbContext.Songs.FirstOrDefault(s => s.Name == inputModel.SongName);
             Comment comment = new Comment()
             {
                 Text = inputModel.Text,
-                SongId = song.Id,
+                SongId = int.Parse(SelectedSongId),
                 ApplicationUserId = userId
             };
 

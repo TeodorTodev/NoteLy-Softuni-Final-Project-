@@ -10,7 +10,6 @@
             if (songs.length > 0) {
                 songs.forEach(function (song, index) {
                     var formattedTime = formatDuration(song.duration); // Function to format duration
-                    console.log(song);
                     //songsContainer.append(`
                     //    <div class="Song">
                     //        <p class="SongNumber">${index + 1}</p>
@@ -40,6 +39,7 @@
                             </span>
                             <p class="Duration">${formattedTime}</p>
                             <a class="renderComments" onclick="loadComments(${song.id})"><i class="fa-solid fa-comment"></i></a>
+                            <button id="playButton" onclick="PlaySong(${song.id})">Play Audio</button>
                     `;
 
                     // Check if the current user is the creator of the song

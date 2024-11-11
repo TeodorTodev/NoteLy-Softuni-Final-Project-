@@ -37,13 +37,14 @@
 
 .SearchBar {
     width: 95%;
-    border-radius: 10px;
     text-indent: 5px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 .SearchBar:hover {
@@ -51,7 +52,7 @@
 }
 
 .SearchBar::placeholder {
-    color: white;
+    color: rgb(255, 255, 255, 0.8);
     font-size: 12px;
 }
 
@@ -76,16 +77,28 @@
 .addPlaylistDiv {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    height: 5%
 }
 
 .addPlayList {
     color: white;
-    margin-right: 25px;
+    width: 30%;
     transition: 0.15s;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    margin-right: 10px;
+    text-align: center;
 }
 
 .addPlayList:hover {
-    color: rgb(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255, 0.8);
+    color: #333;
 }
 
 .PlaylistsDiv {
@@ -100,12 +113,22 @@
 
 ::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.2);
+    background-color: white;
     border-radius: 5px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.EmptyPlaylistDiv {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.EmptyPlaylistMessage {
+    margin: 0;
+    color: white;
+    font-size: 30px;
 }
 
 .Playlist {

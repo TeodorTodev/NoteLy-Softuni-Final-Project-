@@ -11,9 +11,6 @@ namespace NoteLy.Web.ViewModels.Comment
         public string Text { get; set; } = null!;
 
         [Required]
-        public string SongName { get; set; } = null!;// add validation
-
-        [Required]
         public Guid ApplicationUserId { get; set; }
     }
 }

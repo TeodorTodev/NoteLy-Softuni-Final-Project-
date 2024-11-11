@@ -49,17 +49,31 @@
     line-height: 1.5;
 }
 
-.addSong i {
-    margin-left: 150px;
+.addSong {
+    margin-left: 100px;
+    width: 20%;
+    text-align: center;
     transition: 0.15s;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 7px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    height: 80%;
+    line-height: 1.1;
 }
 
-.addSong i:hover {
-    color: rgb(255, 255, 255, 0.5);
+.addSong:hover {
+    background-color: rgb(255, 255, 255, 0.8);
+    color: #333;
 }
 
 .Songs {
     height: 66%;
+    overflow-y: auto;
 }
 
 .noPlaylistSelectedDiv {
@@ -91,7 +105,8 @@
 .Song {
     display: flex;
     align-items: center;
-    margin-top: 10px
+    margin-top: 10px;
+    box-sizing:content-box;
 }
 
 .Song:hover {

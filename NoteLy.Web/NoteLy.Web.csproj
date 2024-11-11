@@ -30,7 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Mp3Songs\" />
     <Folder Include="wwwroot\Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Mp3Songs\output.mp3" />
   </ItemGroup>
 
 </Project>

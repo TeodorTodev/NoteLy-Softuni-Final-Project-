@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\NoteLy.Web.bundle.scp.css"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Mp3Songs\\output.mp3",
+      "PackagePath": "staticwebassets\\Mp3Songs\\output.mp3"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\Background.jpg",
       "PackagePath": "staticwebassets\\Resources\\Background.jpg"
     },
@@ -61,6 +65,10 @@
       "PackagePath": "staticwebassets\\css\\Register.css"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\SongControls\\SongControls.css",
+      "PackagePath": "staticwebassets\\css\\SongControls\\SongControls.css"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Song\\CreateSong.css",
       "PackagePath": "staticwebassets\\css\\Song\\CreateSong.css"
     },
@@ -81,16 +89,36 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\FormatSongDuration.js",
+      "PackagePath": "staticwebassets\\js\\FormatSongDuration.js"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\LoadComments.js",
       "PackagePath": "staticwebassets\\js\\LoadComments.js"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\LoadDropDownPlaylists.js",
+      "PackagePath": "staticwebassets\\js\\LoadDropDownPlaylists.js"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\LoadDropDownSongs.js",
+      "PackagePath": "staticwebassets\\js\\LoadDropDownSongs.js"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\LoadSongs.js",
       "PackagePath": "staticwebassets\\js\\LoadSongs.js"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\PlaySong.js",
+      "PackagePath": "staticwebassets\\js\\PlaySong.js"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\PlaylistSelection.js",
       "PackagePath": "staticwebassets\\js\\PlaylistSelection.js"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongControls.js",
+      "PackagePath": "staticwebassets\\js\\SongControls.js"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongSelection.js",
@@ -331,6 +359,10 @@
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\py\\download_mp3.py",
+      "PackagePath": "staticwebassets\\py\\download_mp3.py"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NoteLy.Web.Microsoft.AspNetCore.StaticWebAssets.props",

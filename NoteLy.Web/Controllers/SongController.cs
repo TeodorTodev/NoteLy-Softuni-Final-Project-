@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using NoteLy.Data.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace NoteLy.Web.Controllers
 {
@@ -23,26 +24,114 @@ namespace NoteLy.Web.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetPlaylists()
+        {
+            var playlists = await _dbContext.PlayLists.ToListAsync();
+            return Json(playlists);
+        }
+
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(AddSongInputModel songViewModel)
+        public async Task<IActionResult> Create(string SelectedPlaylistId, AddSongInputModel songViewModel)
         {
-            var userId = Guid.Parse(userManager.GetUserId(User));
-            if (!_dbContext.PlayLists.Any(p => p.Name == songViewModel.PlayListName))
+            if (string.IsNullOrEmpty(SelectedPlaylistId))
             {
-                return RedirectToAction("Index", "Home");
+                ModelState.AddModelError("SelectedPlaylistId", "Please select a playlist.");
+                return View(songViewModel); // Return the view with the error message
             }
-            var playlist = _dbContext.PlayLists.FirstOrDefault(p => p.Name == songViewModel.PlayListName);
+
+            var timeParts = songViewModel.Duration.Split(':');
+
+            if (timeParts.IsNullOrEmpty())
+            {
+                ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                return View(songViewModel);
+            }
+
+            for (int i = 0; i < timeParts.Length; i++)
+            {
+                if (timeParts[i].Length > 2)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(songViewModel);
+                }
+            }
+
+            if (!TimeSpan.TryParse(songViewModel.Duration, out var duration))
+            {
+                // Add error to ModelState if the format is incorrect
+                ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                return View(songViewModel);
+            }
+
+            TimeSpan time = TimeSpan.Zero;
+
+            if (timeParts.Length == 1)
+            {
+                if (int.Parse(timeParts[0]) > 59)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(songViewModel);
+                }
+
+                // Parse as "minutes:seconds"
+                int seconds = int.Parse(timeParts[0]);
+
+                time = new TimeSpan(0, 0, seconds);
+            }
+            else if (timeParts.Length == 2)
+            {
+                if (int.Parse(timeParts[0]) > 59 || int.Parse(timeParts[1]) > 59)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(songViewModel);
+                }
+
+                // Parse as "minutes:seconds"
+                int minutes = int.Parse(timeParts[0]);
+                int seconds = int.Parse(timeParts[1]);
+
+                time = new TimeSpan(0, minutes, seconds);
+            }
+            else if (timeParts.Length == 3)
+            {
+                if (int.Parse(timeParts[0]) > 23)
+                {
+                    ModelState.AddModelError("Duration", "The maximum accepted hours are 23.");
+                    return View(songViewModel);
+                }
+                else if (int.Parse(timeParts[1]) > 59 || int.Parse(timeParts[2]) > 59)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(songViewModel);
+                }
+
+                // Parse as "hours:minutes:seconds" if provided
+                int hours = int.Parse(timeParts[0]);
+                int minutes = int.Parse(timeParts[1]);
+                int seconds = int.Parse(timeParts[2]);
+
+                time = new TimeSpan(hours, minutes, seconds);
+            }
+            else
+            {
+                ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                return View(songViewModel);
+            }
+
+            var userId = Guid.Parse(userManager.GetUserId(User));
+
             var newSong = new Song
             {
                 Name = songViewModel.Name,
-                Duration = songViewModel.Duration,
+                Duration = time,
                 FilePath = songViewModel.FilePath,
-                PlayListId = playlist.Id,
+                PlayListId = int.Parse(SelectedPlaylistId),
                 ApplicationUserId = userId,
             };
 
@@ -113,7 +202,7 @@ namespace NoteLy.Web.Controllers
             {
                 Id = song.Id,
                 Name = song.Name,
-                Duration = song.Duration,
+                Duration = song.Duration.ToString(),
                 FilePath = song.FilePath,
                 ArtistNames = string.Join(", ", usernames),
             };
@@ -138,9 +227,87 @@ namespace NoteLy.Web.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+            var timeParts = model.Duration.Split(':');
+
+            if (timeParts.IsNullOrEmpty())
+            {
+                ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                return View(model);
+            }
+
+            for (int i = 0; i < timeParts.Length; i++)
+            {
+                if (timeParts[i].Length > 2)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(model);
+                }
+            }
+
+            if (!TimeSpan.TryParse(model.Duration, out var duration))
+            {
+                // Add error to ModelState if the format is incorrect
+                ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                return View(model);
+            }
+
+            TimeSpan time = TimeSpan.Zero;
+
+            if (timeParts.Length == 1)
+            {
+                if (int.Parse(timeParts[0]) > 59)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(model);
+                }
+
+                // Parse as "minutes:seconds"
+                int seconds = int.Parse(timeParts[0]);
+
+                time = new TimeSpan(0, 0, seconds);
+            }
+            else if (timeParts.Length == 2)
+            {
+                if (int.Parse(timeParts[1]) > 59 || int.Parse(timeParts[2]) > 59)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(model);
+                }
+
+                // Parse as "minutes:seconds"
+                int minutes = int.Parse(timeParts[0]);
+                int seconds = int.Parse(timeParts[1]);
+
+                time = new TimeSpan(0, minutes, seconds);
+            }
+            else if (timeParts.Length == 3)
+            {
+                if (int.Parse(timeParts[0]) > 23 || int.Parse(timeParts[1]) > 59 || int.Parse(timeParts[2]) > 59)
+                {
+                    ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                    return View(model);
+                }
+
+                // Parse as "hours:minutes:seconds" if provided
+                int hours = int.Parse(timeParts[0]);
+                int minutes = int.Parse(timeParts[1]);
+                int seconds = int.Parse(timeParts[2]);
+
+                time = new TimeSpan(hours, minutes, seconds);
+            }
+            else
+            {
+                ModelState.AddModelError("Duration", "Please enter a valid time format.");
+                return View(model);
+            }
+
+
+            // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             // Update the song properties
             song.Name = model.Name;
-            song.Duration = model.Duration;
+            song.Duration = time;
             song.FilePath = model.FilePath;
 
             // Split artist names into a list and trim whitespace

@@ -1,4 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-    <div class="songControls"></div>
+    <div class="songControls">
+        <audio id="audioPlayer" style="display: none;">
+            <source id="audioSource" src="/Mp3Songs/output.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Custom Controls -->
+        <div id="audioControls">
+            <button id="playPauseBtn"><i class="fa-solid fa-circle-play"></i></button>
+            <span id="currentTime">0:00</span>
+            <input type="range" id="progressBar" value="0" max="100" step="1" />
+            <span id="duration">0:00</span>
+            <input type="range" id="volumeControl" value="100" max="100" step="1" />
+        </div>
+    </div>
