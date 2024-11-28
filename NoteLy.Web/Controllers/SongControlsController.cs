@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NoteLy.Data.Models;
 using NoteLy.Data;
 using System.Diagnostics;
-//using NoteLy.Web.ViewModels.Song_Controls;
+using System.Text.Json;
+using NoteLy.Data.Repository.Interfaces;
+using NoteLy.Services.Data.Interfaces;
+using Notely.Data.Models;
 
 namespace NoteLy.Web.Controllers
 {
@@ -13,19 +15,18 @@ namespace NoteLy.Web.Controllers
     public class SongControlsController : ControllerBase
     {
         private readonly NoteLyDbContext dbContext;
-        //private readonly UserManager<ApplicationUser> userManager;
-        public SongControlsController(NoteLyDbContext _dbContext/*, UserManager<ApplicationUser> _userManager*/)
+        private readonly ISongControlsService songControlsService;
+        public SongControlsController(NoteLyDbContext _dbContext, ISongControlsService songControlsService)
         {
             this.dbContext = _dbContext;
-            //this.userManager = _userManager;
+            this.songControlsService = songControlsService;
         }
 
         [HttpGet("ConvertToMp3")]
-        public IActionResult ConvertToMp3(/*YouTubeRequest request*/ int songId)
+        public IActionResult ConvertToMp3(int songId)
         {
 
-            var song = dbContext.Songs.FirstOrDefault(a => a.Id == songId);
-
+            Song? song = this.songControlsService.GetSong(songId);
             var songUrl = song.FilePath;
 
             if (string.IsNullOrEmpty(songUrl))
@@ -35,7 +36,6 @@ namespace NoteLy.Web.Controllers
 
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string pythonScriptPath = Path.GetFullPath(Path.Combine(baseDirectory, "..", "..", "..", "wwwroot", "py", "download_mp3.py"));
-            //string outputFilePath = Path.Combine("C:\\path\\to\\output\\directory", "output.mp3");
             string outputFilePath = Path.GetFullPath(Path.Combine(baseDirectory, "..", "..", "..", "wwwroot", "Mp3Songs","output"));
 
             try
@@ -58,13 +58,14 @@ namespace NoteLy.Web.Controllers
                     string error = process.StandardError.ReadToEnd();
                     process.WaitForExit();
 
-                    process.OutputDataReceived += (sender, args) => Console.WriteLine("Output: " + args.Data);//aaaaa
-                    process.ErrorDataReceived += (sender, args) => Console.WriteLine("Error: " + args.Data);//aaaaaaa
+                    process.OutputDataReceived += (sender, args) => Console.WriteLine("Output: " + args.Data);
+                    process.ErrorDataReceived += (sender, args) => Console.WriteLine("Error: " + args.Data);
 
 
                     if (process.ExitCode == 0)
                     {
-                        return Ok(new { message = "Download and conversion successful!", filePath = outputFilePath });
+                        string id = ExtractJson(output);
+                        return Ok(new { message = "Download and conversion successful!", filePath = outputFilePath, songId = id, songName = song.Name });
                     }
                     else
                     {
@@ -74,8 +75,41 @@ namespace NoteLy.Web.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return StatusCode(500, $"An exception occurred: {ex.Message}");
             }
         }
+        public string ExtractJson(string output)
+        {
+            int jsonStartIndex = output.IndexOf("{");
+            int jsonEndIndex = output.LastIndexOf("}");
+
+            if (jsonStartIndex >= 0 && jsonEndIndex >= 0)
+            {
+                string jsonString = output.Substring(jsonStartIndex, jsonEndIndex - jsonStartIndex + 1);
+
+                try
+                {
+                    using (JsonDocument jsonDoc = JsonDocument.Parse(jsonString))
+                    {
+                        string id = jsonDoc.RootElement.GetProperty("id").GetString();
+                        return id;
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    return ex.Message;
+                }
+            }
+            else
+            {
+                return "JSON not found in the output.";
+            }
+        }
     }
+}
+
+public class AudioMetadata
+{
+    public string Title { get; set; }
 }

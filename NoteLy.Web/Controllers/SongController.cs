@@ -42,7 +42,7 @@ namespace NoteLy.Web.Controllers
             if (string.IsNullOrEmpty(SelectedPlaylistId))
             {
                 ModelState.AddModelError("SelectedPlaylistId", "Please select a playlist.");
-                return View(songViewModel); // Return the view with the error message
+                return View(songViewModel);
             }
 
             var timeParts = songViewModel.Duration.Split(':');
@@ -64,7 +64,6 @@ namespace NoteLy.Web.Controllers
 
             if (!TimeSpan.TryParse(songViewModel.Duration, out var duration))
             {
-                // Add error to ModelState if the format is incorrect
                 ModelState.AddModelError("Duration", "Please enter a valid time format.");
                 return View(songViewModel);
             }
@@ -79,7 +78,6 @@ namespace NoteLy.Web.Controllers
                     return View(songViewModel);
                 }
 
-                // Parse as "minutes:seconds"
                 int seconds = int.Parse(timeParts[0]);
 
                 time = new TimeSpan(0, 0, seconds);
@@ -92,7 +90,6 @@ namespace NoteLy.Web.Controllers
                     return View(songViewModel);
                 }
 
-                // Parse as "minutes:seconds"
                 int minutes = int.Parse(timeParts[0]);
                 int seconds = int.Parse(timeParts[1]);
 
@@ -111,7 +108,6 @@ namespace NoteLy.Web.Controllers
                     return View(songViewModel);
                 }
 
-                // Parse as "hours:minutes:seconds" if provided
                 int hours = int.Parse(timeParts[0]);
                 int minutes = int.Parse(timeParts[1]);
                 int seconds = int.Parse(timeParts[2]);
@@ -177,7 +173,7 @@ namespace NoteLy.Web.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var song = await _dbContext.Songs
-                .Include(s => s.Artists)  // Include associated artists
+                .Include(s => s.Artists)
                 .FirstOrDefaultAsync(s => s.Id == id);
 
             if (song == null)
@@ -193,11 +189,10 @@ namespace NoteLy.Web.Controllers
                 artistsIds.Add(artist.ArtistId);
             }
             var usernames = await _dbContext.Artists
-            .Where(a => artistsIds.Contains(a.Id)) // Filter for the given IDs
-            .Select(a => a.UserName) // Select the UserName property
-            .ToListAsync(); // Execute the query
+            .Where(a => artistsIds.Contains(a.Id))
+            .Select(a => a.UserName)
+            .ToListAsync();
 
-            // Prepare the view model with the song details, including FilePath
             var viewModel = new EditSongViewModel
             {
                 Id = song.Id,
@@ -219,15 +214,13 @@ namespace NoteLy.Web.Controllers
             }
 
             var song = await _dbContext.Songs
-                .Include(s => s.Artists) // Include existing artists
+                .Include(s => s.Artists)
                 .FirstOrDefaultAsync(s => s.Id == model.Id);
 
             if (song == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-
-            // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
             var timeParts = model.Duration.Split(':');
 
@@ -248,7 +241,6 @@ namespace NoteLy.Web.Controllers
 
             if (!TimeSpan.TryParse(model.Duration, out var duration))
             {
-                // Add error to ModelState if the format is incorrect
                 ModelState.AddModelError("Duration", "Please enter a valid time format.");
                 return View(model);
             }
@@ -263,7 +255,6 @@ namespace NoteLy.Web.Controllers
                     return View(model);
                 }
 
-                // Parse as "minutes:seconds"
                 int seconds = int.Parse(timeParts[0]);
 
                 time = new TimeSpan(0, 0, seconds);
@@ -276,7 +267,6 @@ namespace NoteLy.Web.Controllers
                     return View(model);
                 }
 
-                // Parse as "minutes:seconds"
                 int minutes = int.Parse(timeParts[0]);
                 int seconds = int.Parse(timeParts[1]);
 
@@ -290,7 +280,6 @@ namespace NoteLy.Web.Controllers
                     return View(model);
                 }
 
-                // Parse as "hours:minutes:seconds" if provided
                 int hours = int.Parse(timeParts[0]);
                 int minutes = int.Parse(timeParts[1]);
                 int seconds = int.Parse(timeParts[2]);
@@ -303,14 +292,10 @@ namespace NoteLy.Web.Controllers
                 return View(model);
             }
 
-
-            // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            // Update the song properties
             song.Name = model.Name;
             song.Duration = time;
             song.FilePath = model.FilePath;
 
-            // Split artist names into a list and trim whitespace
             var artistNames = model.ArtistNames
                 .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(a => a.Trim())
@@ -336,10 +321,8 @@ namespace NoteLy.Web.Controllers
                     var newArtist = new Artist
                     {
                         UserName = artistName
-                        // Set other properties if necessary
                     };
 
-                    // Add the new artist to the context
                     await _dbContext.Artists.AddAsync(newArtist);
                     await _dbContext.SaveChangesAsync();
 
@@ -348,7 +331,6 @@ namespace NoteLy.Web.Controllers
                 }
             }
 
-            // Save changes to the database
             await _dbContext.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");
@@ -357,15 +339,6 @@ namespace NoteLy.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            //var song = await _dbContext.Songs
-            //    .FirstOrDefaultAsync(s => s.Id == id);
-
-            //_dbContext.Songs.Remove(song);
-            //await _dbContext.SaveChangesAsync();
-
-            //return RedirectToAction("Index", "Home");
-
-
             var song = await _dbContext.Songs
             .Include(s => s.Comments)
             .FirstOrDefaultAsync(s => s.Id == id);

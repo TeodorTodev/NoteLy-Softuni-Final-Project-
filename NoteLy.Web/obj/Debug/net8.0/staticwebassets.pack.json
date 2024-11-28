@@ -117,20 +117,16 @@
       "PackagePath": "staticwebassets\\js\\PlaylistSelection.js"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SearchPlaylist.js",
+      "PackagePath": "staticwebassets\\js\\SearchPlaylist.js"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongControls.js",
       "PackagePath": "staticwebassets\\js\\SongControls.js"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongSelection.js",
       "PackagePath": "staticwebassets\\js\\SongSelection.js"
-    },
-    {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongsSection.js",
-      "PackagePath": "staticwebassets\\js\\SongsSection.js"
-    },
-    {
-      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -239,7 +239,7 @@ namespace NoteLy.Data.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("PlayLists");
+                    b.ToTable("PlayLists", (string)null);
                 });
 
             modelBuilder.Entity("Notely.Data.Models.Artist", b =>
@@ -257,7 +257,7 @@ namespace NoteLy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Artists");
+                    b.ToTable("Artists", (string)null);
                 });
 
             modelBuilder.Entity("Notely.Data.Models.ArtistSong", b =>
@@ -272,7 +272,7 @@ namespace NoteLy.Data.Migrations
 
                     b.HasIndex("ArtistId");
 
-                    b.ToTable("ArtistSongs");
+                    b.ToTable("ArtistSongs", (string)null);
                 });
 
             modelBuilder.Entity("Notely.Data.Models.Comment", b =>
@@ -299,25 +299,7 @@ namespace NoteLy.Data.Migrations
 
                     b.HasIndex("SongId");
 
-                    b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("Notely.Data.Models.Genre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genres");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Notely.Data.Models.Song", b =>
@@ -352,55 +334,7 @@ namespace NoteLy.Data.Migrations
 
                     b.HasIndex("PlayListId");
 
-                    b.ToTable("Songs");
-                });
-
-            modelBuilder.Entity("Notely.Data.Models.SongGenre", b =>
-                {
-                    b.Property<int>("SongId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GenreId")
-                        .HasColumnType("int");
-
-                    b.HasKey("SongId", "GenreId");
-
-                    b.HasIndex("GenreId");
-
-                    b.ToTable("SongGenres");
-                });
-
-            modelBuilder.Entity("Notely.Data.Models.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tags");
-                });
-
-            modelBuilder.Entity("Notely.Data.Models.TagSong", b =>
-                {
-                    b.Property<int>("SongId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("SongId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("TagSongs");
+                    b.ToTable("Songs", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -522,44 +456,6 @@ namespace NoteLy.Data.Migrations
                     b.Navigation("PlayList");
                 });
 
-            modelBuilder.Entity("Notely.Data.Models.SongGenre", b =>
-                {
-                    b.HasOne("Notely.Data.Models.Genre", "Genre")
-                        .WithMany("SongGenres")
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Notely.Data.Models.Song", "Song")
-                        .WithMany("SongGenres")
-                        .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Genre");
-
-                    b.Navigation("Song");
-                });
-
-            modelBuilder.Entity("Notely.Data.Models.TagSong", b =>
-                {
-                    b.HasOne("Notely.Data.Models.Song", "Song")
-                        .WithMany("TagSongs")
-                        .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Notely.Data.Models.Tag", "Tag")
-                        .WithMany("TagSongs")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Song");
-
-                    b.Navigation("Tag");
-                });
-
             modelBuilder.Entity("NoteLy.Data.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Comments");
@@ -577,25 +473,11 @@ namespace NoteLy.Data.Migrations
                     b.Navigation("ArtistSongs");
                 });
 
-            modelBuilder.Entity("Notely.Data.Models.Genre", b =>
-                {
-                    b.Navigation("SongGenres");
-                });
-
             modelBuilder.Entity("Notely.Data.Models.Song", b =>
                 {
                     b.Navigation("Artists");
 
                     b.Navigation("Comments");
-
-                    b.Navigation("SongGenres");
-
-                    b.Navigation("TagSongs");
-                });
-
-            modelBuilder.Entity("Notely.Data.Models.Tag", b =>
-                {
-                    b.Navigation("TagSongs");
                 });
 #pragma warning restore 612, 618
         }

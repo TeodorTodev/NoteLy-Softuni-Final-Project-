@@ -26,6 +26,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NoteLy.Data\NoteLy.Data.csproj" />
+    <ProjectReference Include="..\NoteLy.Services.Data\NoteLy.Services.Data.csproj" />
+    <ProjectReference Include="..\Notely.Web.Infrastructure\Notely.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\NoteLy.Web.ViewModels\NoteLy.Web.ViewModels.csproj" />
   </ItemGroup>
 

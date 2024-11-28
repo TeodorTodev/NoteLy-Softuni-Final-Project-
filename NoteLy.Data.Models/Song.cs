@@ -35,10 +35,5 @@ namespace Notely.Data.Models
         public ICollection<ArtistSong> Artists { get; set; } = new HashSet<ArtistSong>();
 
         public ICollection<Comment>? Comments { get; set; } = new HashSet<Comment>();
-
-        public ICollection<TagSong>? TagSongs { get; set; } = new HashSet<TagSong>();
-
-        [Required]
-        public ICollection<SongGenre> SongGenres { get; set; } = new HashSet<SongGenre>();
     }
 }

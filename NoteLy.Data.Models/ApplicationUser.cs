@@ -14,8 +14,6 @@ namespace NoteLy.Data.Models
         {
             this.Id = Guid.NewGuid();
         }
-
-        //public ICollection<PlayList> PlayLists { get; set; } = new HashSet<PlayList>();
         public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
         public ICollection<Song> Songs { get; set; } = new HashSet<Song>();
     }

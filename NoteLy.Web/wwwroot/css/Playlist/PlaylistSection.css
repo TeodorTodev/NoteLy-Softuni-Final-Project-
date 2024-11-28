@@ -1,8 +1,4 @@
-﻿/**{
-    margin: 0 0 0 0;
-}*/
-
-.PlaylistSection {
+﻿.PlaylistSection {
     width: 350px;
     height: 680px;
     background: rgba(255, 255, 255, 0.2);
@@ -33,9 +29,11 @@
     display: flex;
     justify-content: center;
     position: relative;
+    padding: 0px 10px 0px 10px;
+    gap: 5px
 }
 
-.SearchBar {
+#searchInput {
     width: 95%;
     text-indent: 5px;
     background: rgba(255, 255, 255, 0.2);
@@ -47,19 +45,21 @@
     color: white;
 }
 
-.SearchBar:hover {
+#searchInput:hover {
     border: 1px solid white;
 }
 
-.SearchBar::placeholder {
+#searchInput::placeholder {
     color: rgb(255, 255, 255, 0.8);
-    font-size: 12px;
+    font-size: 15px;
+}
+
+#searchButton {
+    background: none;
+    border: none;
 }
 
 .fa-magnifying-glass {
-    position: absolute;
-    right: 25px;
-    bottom: 7px;
     color: white;
     cursor: pointer;
     transition: 0.15s;

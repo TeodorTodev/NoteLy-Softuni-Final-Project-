@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using NoteLy.Data;
 using NoteLy.Data.Models;
 using NoteLy.Web.ViewModels.Playlist;
@@ -16,22 +17,29 @@ namespace NoteLy.Web.Controllers
             this._dbContext = dbContext;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetSongsForPlaylist(int playlistId)
-        //{
-        //    var songs = await _dbContext.Songs
-        //        .Where(s => s.PlayListId == playlistId)
-        //        .Select(s => new SongCardViewModel
-        //        {
-        //            Id = s.Id.ToString(),
-        //            Name = s.Name,
-        //            Duration = s.Duration,
-        //            Artists = s.Artists.Select(a => a.Artist.UserName).ToArray(),
-        //        })
-        //        .ToListAsync();
+        [HttpGet]
+        public IActionResult Search(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return Json(new { success = false});
+            }
 
-        //    return Json(songs);
-        //}
+            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            // Search playlists by name
+            var playlists = _dbContext.PlayLists
+                .Where(p => p.Name.Contains(query))
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Name,
+                    p.ApplicationUserId
+                })
+                .ToList();
+
+            return Json(new { success = true, playlists, userId});
+        }
 
         [HttpGet]
         public IActionResult Create()
@@ -92,38 +100,27 @@ namespace NoteLy.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            //var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
-            //var playlist = await _dbContext.PlayLists
-            //    .FirstOrDefaultAsync(p => p.Id == id && p.ApplicationUserId == userId);
-
-            //_dbContext.PlayLists.Remove(playlist);
-            //await _dbContext.SaveChangesAsync();
-
-            //return RedirectToAction("Index", "Home");
-
-
             var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             // Retrieve the playlist including its songs and their comments
             var playlist = await _dbContext.PlayLists
-                .Include(p => p.Songs) // Include the songs related to the playlist
-                .ThenInclude(s => s.Comments) // Include the comments for each song
+                .Include(p => p.Songs)
+                .ThenInclude(s => s.Comments)
                 .FirstOrDefaultAsync(p => p.Id == id && p.ApplicationUserId == userId);
 
             if (playlist == null)
             {
-                return NotFound(); // Return 404 if the playlist doesn't exist or doesn't belong to the user
+                return NotFound();
             }
 
             // Remove comments related to each song
             foreach (var song in playlist.Songs)
             {
-                _dbContext.Comments.RemoveRange(song.Comments); // Remove all comments for the song
+                _dbContext.Comments.RemoveRange(song.Comments);
             }
 
             // Remove associated songs
-            _dbContext.Songs.RemoveRange(playlist.Songs); // Remove all songs associated with the playlist
+            _dbContext.Songs.RemoveRange(playlist.Songs);
 
             // Remove the playlist
             _dbContext.PlayLists.Remove(playlist);
@@ -131,7 +128,7 @@ namespace NoteLy.Web.Controllers
             // Save changes to the database
             await _dbContext.SaveChangesAsync();
 
-            return RedirectToAction("Index", "Home"); // Redirect to the home page after deletion
+            return RedirectToAction("Index", "Home");
         }
     }
 }

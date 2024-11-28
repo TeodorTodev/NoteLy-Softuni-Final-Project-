@@ -1,10 +1,10 @@
 ﻿function loadComments(songId) {
     $.ajax({
-        url: '/Home/CommentSection', // Your action that returns comments for a specific song
+        url: '/Home/CommentSection',
         type: 'GET',
         data: { songId: songId },
         success: function (comments) {
-            const commentsContainer = $('.CommentsDiv'); // Change this to your actual comments container class/ID
+            const commentsContainer = $('.CommentsDiv');
             commentsContainer.empty(); // Clear existing comments
 
             // Check if there are any comments
@@ -33,7 +33,7 @@
             }
         },
         error: function (xhr, status, error) {
-            console.error('Error loading comments:', error); // Log error for debugging
+            console.error('Error loading comments:', error);
         }
     });
 }

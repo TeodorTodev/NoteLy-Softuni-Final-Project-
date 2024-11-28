@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Notely.Data.Models;
 using NoteLy.Data;
+using NoteLy.Data.Models;
+using NoteLy.Services.Data.Interfaces;
 using NoteLy.Web.ViewModels.Comment;
 using NoteLy.Web.ViewModels.Playlist;
 using System.Security.Claims;
@@ -11,15 +14,19 @@ namespace NoteLy.Web.Controllers
     public class CommentController : Controller
     {
         private readonly NoteLyDbContext _dbContext;
-        public CommentController(NoteLyDbContext dbContext)
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly ICommentService commentService;
+        public CommentController(NoteLyDbContext dbContext, UserManager<ApplicationUser> userManager, ICommentService commentService)
         {
             this._dbContext = dbContext;
+            this.userManager = userManager;
+            this.commentService = commentService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetSongs()
         {
-            var songs = await _dbContext.Songs.ToListAsync();
+            List<Song> songs = await this.commentService.GetAllSongsAsync();
             return Json(songs);
         }
 
@@ -36,27 +43,19 @@ namespace NoteLy.Web.Controllers
             if (string.IsNullOrEmpty(SelectedSongId))
             {
                 ModelState.AddModelError("SelectedSongId", "Please select a song.");
-                return View(inputModel); // Return the view with the error message
+                return View(inputModel);
             }
 
-            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            Comment comment = new Comment()
-            {
-                Text = inputModel.Text,
-                SongId = int.Parse(SelectedSongId),
-                ApplicationUserId = userId
-            };
+            Guid currentUserId = Guid.Parse(userManager.GetUserId(User));
+            await this.commentService.AddCommentAsync(SelectedSongId, inputModel, currentUserId);
 
-            await this._dbContext.Comments.AddAsync(comment);
-            await this._dbContext.SaveChangesAsync();
-
-            return RedirectToAction("Index", "Home", new { songId = comment.SongId });
+            return RedirectToAction("Index", "Home", new { songId = int.Parse(SelectedSongId) });
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var comment = await _dbContext.Comments.FindAsync(id);
+            Comment? comment = await this.commentService.GetCommentById(id);
 
             var viewModel = new EditCommentViewModel
             {
@@ -73,15 +72,9 @@ namespace NoteLy.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var comment = await _dbContext.Comments.FindAsync(model.Id);
-                if (comment == null)
-                {
-                    return this.RedirectToAction("Index", "Home");
-                }
+                Comment? comment = 
+                    await this.commentService.EditCommentAsync(model);
 
-                comment.Text = model.Text;
-
-                await _dbContext.SaveChangesAsync();
 
                 return RedirectToAction("Index", "Home", new { songId = comment.SongId });
             }
@@ -92,18 +85,9 @@ namespace NoteLy.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var comment = await _dbContext.Comments
-                .FirstOrDefaultAsync(s => s.Id == id);
+            bool IsDeleted = await this.commentService.DeleteCommentAsync(id);
 
-            if (comment == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            _dbContext.Comments.Remove(comment);
-            await _dbContext.SaveChangesAsync();
-
-            return RedirectToAction("Index", "Home", new { songId = comment.SongId });
+            return RedirectToAction("Index", "Home");
         }
     }
 }

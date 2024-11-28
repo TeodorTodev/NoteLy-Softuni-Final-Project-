@@ -1,7 +1,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Notely.Data.Models;
+using Notely.Web.Infrastructure.Extensions;
 using NoteLy.Data;
 using NoteLy.Data.Models;
+using NoteLy.Data.Repository;
+using NoteLy.Data.Repository.Interfaces;
+using NoteLy.Services.Data;
+using NoteLy.Services.Data.Interfaces;
 
 namespace NoteLy.Web
 {
@@ -11,7 +17,6 @@ namespace NoteLy.Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("SQLServer") ?? throw new InvalidOperationException("Connection string 'SQLServer' not found.");
             builder.Services.AddDbContext<NoteLyDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -30,6 +35,11 @@ namespace NoteLy.Web
             {
                 options.LoginPath = "/Home/LogIn";
             });
+
+            builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+            builder.Services.RegisterUserDefinedServices(typeof(IHomeService).Assembly);
+
+            builder.Services.AddScoped<IHomeService, HomeService>();
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();

@@ -2,6 +2,9 @@
 @using Microsoft.AspNetCore.Identity
 @using NoteLy.Data.Models
 @model AddSongInputModel
+@{
+    ViewData["Title"] = "Add Song";
+}
 
 <div class="SongInputDiv">
     <h2 class="AddSongTitle">Add a new Song</h2>
@@ -25,14 +28,11 @@
                 <span asp-validation-for="ArtistNames" class="text-danger"></span>
             </div>
             <div>
-                <label class="text-white" asp-for="FilePath">Song URL</label>
-                <input asp-for="FilePath" class="CommonSongInputFieldClass form-control" placeholder="Enter Song URL" />
+                <label class="text-white" asp-for="FilePath">Youtube URL</label>
+                <input asp-for="FilePath" class="CommonSongInputFieldClass form-control" placeholder="Enter youtube URL of the song" />
                 <span asp-validation-for="FilePath" class="text-danger"></span>
             </div>
             <div>
-                @* <label class="text-white" asp-for="PlayListName">Playlist Name</label>
-                <input asp-for="PlayListName" class="CommonSongInputFieldClass form-control" placeholder="Enter Playlist Name" />
-                <span asp-validation-for="PlayListName" class="text-danger"></span> *@
                 <select id="playlistDropdown" name="SelectedPlaylistId">
                     <option value="">Select a Playlist</option>
                 </select>

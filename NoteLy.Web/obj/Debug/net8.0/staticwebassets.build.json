@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NsEfAOcsv6PFiFqFABt7O2KWahpSbsNUkwq6tyezuxc=",
+  "Hash": "BepY+iNDsLYwc9WeF/pNEQcn5B68uOlMy4yKV9tILk0=",
   "Source": "NoteLy.Web",
   "BasePath": "_content/NoteLy.Web",
   "Mode": "Default",
@@ -1670,12 +1670,12 @@
       "OriginalItemSpec": "wwwroot\\js\\PlaySong.js"
     },
     {
-      "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\site.js",
+      "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SearchPlaylist.js",
       "SourceId": "NoteLy.Web",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\",
       "BasePath": "_content/NoteLy.Web",
-      "RelativePath": "js/site.js",
+      "RelativePath": "js/SearchPlaylist.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1686,7 +1686,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot\\js\\SearchPlaylist.js"
     },
     {
       "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongControls.js",
@@ -1725,25 +1725,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\SongSelection.js"
-    },
-    {
-      "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\js\\SongsSection.js",
-      "SourceId": "NoteLy.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\",
-      "BasePath": "_content/NoteLy.Web",
-      "RelativePath": "js/SongsSection.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\SongsSection.js"
     },
     {
       "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

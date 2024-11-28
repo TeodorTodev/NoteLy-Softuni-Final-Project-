@@ -1582,10 +1582,10 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection/8.0.1": {
+      "Microsoft.Extensions.DependencyInjection/9.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
@@ -1598,10 +1598,10 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -1614,7 +1614,7 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Extensions.DependencyModel/8.0.2": {
@@ -3129,6 +3129,36 @@
         },
         "runtime": {
           "bin/placeholder/NoteLy.Data.Models.dll": {}
+        }
+      },
+      "NoteLy.Services.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "NoteLy.Data": "1.0.0",
+          "NoteLy.Data.Models": "1.0.0",
+          "NoteLy.Web.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NoteLy.Services.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NoteLy.Services.Data.dll": {}
+        }
+      },
+      "Notely.Web.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "9.0.0",
+          "NoteLy.Data": "1.0.0",
+          "NoteLy.Data.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Notely.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Notely.Web.Infrastructure.dll": {}
         }
       },
       "NoteLy.Web.ViewModels/1.0.0": {
@@ -5712,10 +5742,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection/8.0.1": {
-      "sha512": "BmANAnR5Xd4Oqw7yQ75xOAYODybZQRzdeNucg7kS5wWKd2PNnMdYtJ2Vciy0QLylRmv42DGl5+AFL9izA6F1Rw==",
+    "Microsoft.Extensions.DependencyInjection/9.0.0": {
+      "sha512": "MCPrg7v3QgNMr0vX4vzRXvkNGgLg8vKWX0nKCWUxu2uPyMsaRgiRc1tHBnbTcfJMhMKj2slE/j2M9oGkd25DNw==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection/8.0.1",
+      "path": "microsoft.extensions.dependencyinjection/9.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5725,29 +5755,27 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.targets",
         "lib/net462/Microsoft.Extensions.DependencyInjection.dll",
         "lib/net462/Microsoft.Extensions.DependencyInjection.xml",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.xml",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.dll",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
-        "microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
-      "sha512": "3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.0": {
+      "sha512": "+6f2qv2a3dLwd5w6JanPIPs47CxRbnk+ZocMJUhv9NxP88VlOcJYZs9jY+MYSjxvady08bUZn6qgiNh7DadGgg==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5757,21 +5785,19 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -8534,6 +8560,16 @@
       "path": "../NoteLy.Data.Models/NoteLy.Data.Models.csproj",
       "msbuildProject": "../NoteLy.Data.Models/NoteLy.Data.Models.csproj"
     },
+    "NoteLy.Services.Data/1.0.0": {
+      "type": "project",
+      "path": "../NoteLy.Services.Data/NoteLy.Services.Data.csproj",
+      "msbuildProject": "../NoteLy.Services.Data/NoteLy.Services.Data.csproj"
+    },
+    "Notely.Web.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Notely.Web.Infrastructure/Notely.Web.Infrastructure.csproj",
+      "msbuildProject": "../Notely.Web.Infrastructure/Notely.Web.Infrastructure.csproj"
+    },
     "NoteLy.Web.ViewModels/1.0.0": {
       "type": "project",
       "path": "../NoteLy.Web.ViewModels/NoteLy.Web.ViewModels.csproj",
@@ -8550,7 +8586,9 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.6",
       "NoteLy.Data >= 1.0.0",
-      "NoteLy.Web.ViewModels >= 1.0.0"
+      "NoteLy.Services.Data >= 1.0.0",
+      "NoteLy.Web.ViewModels >= 1.0.0",
+      "Notely.Web.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -8587,6 +8625,12 @@
           "projectReferences": {
             "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Data\\NoteLy.Data.csproj": {
               "projectPath": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Data\\NoteLy.Data.csproj"
+            },
+            "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Services.Data\\NoteLy.Services.Data.csproj": {
+              "projectPath": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Services.Data\\NoteLy.Services.Data.csproj"
+            },
+            "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\Notely.Web.Infrastructure\\Notely.Web.Infrastructure.csproj": {
+              "projectPath": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\Notely.Web.Infrastructure\\Notely.Web.Infrastructure.csproj"
             },
             "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web.ViewModels\\NoteLy.Web.ViewModels.csproj": {
               "projectPath": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web.ViewModels\\NoteLy.Web.ViewModels.csproj"

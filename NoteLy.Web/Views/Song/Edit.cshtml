@@ -1,7 +1,10 @@
 ﻿@model NoteLy.Web.ViewModels.Song.EditSongViewModel
+@{
+    ViewData["Title"] = "Edit Song";
+}
+
 <div class="EditSongInputDiv">
     <h2 class="EditSongTitle">Edit Song</h2>
-
     <form class="EditSongForm" asp-action="Edit" method="post">
         <div class="EditSongInputFields">
             <div class="CommonEditSongInputDivClass">
@@ -20,8 +23,8 @@
                 <span asp-validation-for="ArtistNames" class="text-danger"></span>
             </div>
             <div class="CommonEditSongInputDivClass">
-                <label class="text-white" asp-for="FilePath">Youtube URL of the song</label>
-                <input asp-for="FilePath" class="CommonEditSongInputFieldClass" placeholder="Enter Song URL" />
+                <label class="text-white" asp-for="FilePath">Youtube URL</label>
+                <input asp-for="FilePath" class="CommonEditSongInputFieldClass" placeholder="Enter yuotube URL of the song" />
                 <span asp-validation-for="FilePath" class="text-danger"></span>
             </div>
         </div>

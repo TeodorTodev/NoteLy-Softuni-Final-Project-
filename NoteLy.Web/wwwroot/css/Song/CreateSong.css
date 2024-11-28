@@ -49,7 +49,7 @@
 }
 
 .CommonSongInputFieldClass::placeholder {
-    color: #333
+    color: #333;
 }
 
 #playlistDropdown {

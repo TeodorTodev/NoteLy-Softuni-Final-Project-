@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NoteLy.Data.Models\NoteLy.Data.Models.csproj" />
+    <ProjectReference Include="..\NoteLy.Data\NoteLy.Data.csproj" />
+    <ProjectReference Include="..\NoteLy.Web.ViewModels\NoteLy.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

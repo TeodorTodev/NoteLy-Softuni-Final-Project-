@@ -1,9 +1,9 @@
 ﻿function loadPlaylists() {
     $.ajax({
-        url: '/Song/GetPlaylists', // Replace with your actual controller name
+        url: '/Song/GetPlaylists',
         type: 'GET',
         success: function (playlists) {
-            var dropdown = $('#playlistDropdown'); // Make sure this matches your dropdown ID
+            var dropdown = $('#playlistDropdown');
             dropdown.empty(); // Clear existing options
 
             dropdown.append(`<option value="">Select a Playlist</option>`);

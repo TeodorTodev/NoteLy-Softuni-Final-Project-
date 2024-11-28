@@ -1,7 +1,7 @@
 ﻿@using NoteLy.Web.ViewModels
 @model CompositeViewModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "NoteLy";
 }
 
 <div class="header">
@@ -9,7 +9,6 @@
 </div>
 <div class="sections">
     <partial name="PlayListSection" model="@Model.PlayLists" />
-    @* <partial name="SongsSection" model="@Model.Songs" /> *@
     <partial name="SongsSection"/>
     <partial name="CommentSection"/>
 </div>

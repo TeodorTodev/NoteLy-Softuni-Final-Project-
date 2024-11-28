@@ -1,3 +1,112 @@
 ﻿.songControls {
     height: 13%;
+    display: flex;
+    justify-content: center;
+}
+
+#songInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 91%;
+    left: 1.5%;
+    transform: translate(-9%, -13%);
+    display: none;
+}
+
+.songLogo img {
+    color: white;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#songName {
+    margin-bottom: 0;
+    margin-left: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+#audioControls {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+#playPauseBtn {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+#playPauseBtn i {
+    color: white;
+    font-size: 30px
+}
+
+.test3 {
+    position: absolute;
+    top: 91%;
+    left: 87%;
+    transform: translate(-9%, -13%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+}
+
+.test1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.test2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.test4 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#loadingSongInfoDiv {
+    position: absolute;
+    top: 88%;
+    left: 35%;
+    transform: translate(-12%, -65%);
+    display: none;
+    width: 766px;
+}
+
+#loadingSongInfo {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#currentTime {
+    color: white;
+}
+
+#duration {
+    color: white;
+}
+
+#progressBar {
+    width: 80%;
+    height: 10px;
 }

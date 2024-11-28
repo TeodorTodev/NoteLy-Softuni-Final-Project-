@@ -1,6 +1,32 @@
 [
   {
     "ContainingType": "NoteLy.Web.Controllers.SongControlsController",
+    "Method": "ExtractJson",
+    "RelativePath": "api/SongControls",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "output",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NoteLy.Web.Controllers.SongControlsController",
     "Method": "ConvertToMp3",
     "RelativePath": "api/SongControls/ConvertToMp3",
     "HttpMethod": "GET",

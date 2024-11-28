@@ -1,4 +1,5 @@
 ﻿import sys
+import json
 from yt_dlp import YoutubeDL
 
 def download_mp3(youtube_url, output_path):
@@ -14,6 +15,16 @@ def download_mp3(youtube_url, output_path):
     }
 
     with YoutubeDL(ydl_opts) as ydl:
+
+        info = ydl.extract_info(youtube_url, download=False)
+        video_id = info.get('id', 'Unknown ID')
+
+        metadata = {
+            "id": video_id,
+        }
+
+        print(json.dumps(metadata))
+
         ydl.download([youtube_url])
 
 # This section will be executed when the script is run

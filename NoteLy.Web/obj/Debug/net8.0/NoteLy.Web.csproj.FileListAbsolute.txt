@@ -299,3 +299,7 @@ D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\bin\Debug\net8
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\obj\Debug\net8.0\NoteLy.Web.sourcelink.json
+D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\bin\Debug\net8.0\NoteLy.Services.Data.dll
+D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\bin\Debug\net8.0\Notely.Web.Infrastructure.dll
+D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\bin\Debug\net8.0\NoteLy.Services.Data.pdb
+D:\SoftUni zadachi\Final Project (NoteLy)\FinalProject\NoteLy.Web\bin\Debug\net8.0\Notely.Web.Infrastructure.pdb

@@ -1,9 +1,9 @@
 ﻿function loadDropDownSongs() {
     $.ajax({
-        url: '/Comment/GetSongs', // Replace with your actual controller name
+        url: '/Comment/GetSongs',
         type: 'GET',
         success: function (songs) {
-            var dropdown = $('#songDropdown'); // Make sure this matches your dropdown ID
+            var dropdown = $('#songDropdown');
             dropdown.empty(); // Clear existing options
 
             dropdown.append(`<option value="">Select a song</option>`);

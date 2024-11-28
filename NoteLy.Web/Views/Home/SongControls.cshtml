@@ -1,18 +1,36 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "NoteLy";
 }
-    <div class="songControls">
-        <audio id="audioPlayer" style="display: none;">
-            <source id="audioSource" src="/Mp3Songs/output.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-
-        <!-- Custom Controls -->
-        <div id="audioControls">
+<audio id="audioPlayer" style="display: none;">
+    <source id="audioSource" src="/Mp3Songs/output.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<div id="songInfo">
+    <div class="songLogo">
+        <img src="Resources/Note.svg" alt="Alternate Text" />
+    </div>
+    <div class="songNameDiv">
+        <p id="songName">Name</p>
+    </div>
+</div>
+<div id="audioControls">
+    <div class="test4">
+        <div class="test1">
             <button id="playPauseBtn"><i class="fa-solid fa-circle-play"></i></button>
+        </div>
+        <div class="test2">
             <span id="currentTime">0:00</span>
             <input type="range" id="progressBar" value="0" max="100" step="1" />
             <span id="duration">0:00</span>
-            <input type="range" id="volumeControl" value="100" max="100" step="1" />
         </div>
     </div>
+
+    <div class="test3">
+        <i class="fa-solid fa-volume-high text-white"></i>
+        <input type="range" id="volumeControl" value="100" max="100" step="1" />
+    </div>
+
+    <div id="loadingSongInfoDiv">
+        <p id="loadingSongInfo">Wait, song is loading...</p>
+    </div>
+</div>
