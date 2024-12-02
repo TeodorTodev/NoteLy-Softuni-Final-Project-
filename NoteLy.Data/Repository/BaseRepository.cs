@@ -55,6 +55,12 @@
             return true;
         }
 
+        public async Task DeleteRangeAsync(IEnumerable<TType> items)
+        {
+            dbSet.RemoveRange(items);
+            await dbContext.SaveChangesAsync();
+        }
+
         public IEnumerable<TType> GetAll()
         {
             return this.dbSet.ToArray();

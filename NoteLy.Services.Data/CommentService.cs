@@ -38,18 +38,13 @@ namespace NoteLy.Services.Data
             return true;
         }
 
-        public async Task<Comment?> EditCommentAsync(EditCommentViewModel model)
+        public async Task EditCommentAsync(EditCommentViewModel model)
         {
             Comment comment = await this.commentRepository.GetByIdAsync(model.Id);
-            if (comment == null)
-            {
-                return null;
-            }
 
             comment.Text = model.Text;
 
             await this.commentRepository.UpdateAsync(comment);
-            return comment;
         }
 
         public async Task<List<Song>> GetAllSongsAsync()

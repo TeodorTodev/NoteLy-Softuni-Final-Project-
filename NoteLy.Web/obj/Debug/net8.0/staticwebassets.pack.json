@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\Resources\\Note.svg"
     },
     {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\Triplet note 404.svg",
+      "PackagePath": "staticwebassets\\Resources\\Triplet note 404.svg"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\Triplet note 500.svg",
+      "PackagePath": "staticwebassets\\Resources\\Triplet note 500.svg"
+    },
+    {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Comment\\CommentSection.css",
       "PackagePath": "staticwebassets\\css\\Comment\\CommentSection.css"
     },
@@ -79,6 +87,10 @@
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Song\\SongsSection.css",
       "PackagePath": "staticwebassets\\css\\Song\\SongsSection.css"
+    },
+    {
+      "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Status404.css",
+      "PackagePath": "staticwebassets\\css\\Status404.css"
     },
     {
       "Id": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\site.css",

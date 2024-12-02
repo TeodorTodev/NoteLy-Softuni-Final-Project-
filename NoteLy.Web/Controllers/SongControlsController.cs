@@ -14,11 +14,9 @@ namespace NoteLy.Web.Controllers
     [ApiController]
     public class SongControlsController : ControllerBase
     {
-        private readonly NoteLyDbContext dbContext;
         private readonly ISongControlsService songControlsService;
-        public SongControlsController(NoteLyDbContext _dbContext, ISongControlsService songControlsService)
+        public SongControlsController(ISongControlsService songControlsService)
         {
-            this.dbContext = _dbContext;
             this.songControlsService = songControlsService;
         }
 

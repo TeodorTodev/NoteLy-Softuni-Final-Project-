@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BepY+iNDsLYwc9WeF/pNEQcn5B68uOlMy4yKV9tILk0=",
+  "Hash": "VJZkdLmVdQq8PcVUO0VK4eVeTXG3CYAsv9dxIHBbOXg=",
   "Source": "NoteLy.Web",
   "BasePath": "_content/NoteLy.Web",
   "Mode": "Default",
@@ -1518,6 +1518,25 @@
       "OriginalItemSpec": "wwwroot\\css\\SongControls\\SongControls.css"
     },
     {
+      "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\css\\Status404.css",
+      "SourceId": "NoteLy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\",
+      "BasePath": "_content/NoteLy.Web",
+      "RelativePath": "css/Status404.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Status404.css"
+    },
+    {
       "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\favicon.ico",
       "SourceId": "NoteLy.Web",
       "SourceType": "Discovered",
@@ -2884,6 +2903,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Resources\\Note.svg"
+    },
+    {
+      "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\Triplet note 404.svg",
+      "SourceId": "NoteLy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\",
+      "BasePath": "_content/NoteLy.Web",
+      "RelativePath": "Resources/Triplet note 404.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Resources\\Triplet note 404.svg"
+    },
+    {
+      "Identity": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\Resources\\Triplet note 500.svg",
+      "SourceId": "NoteLy.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SoftUni zadachi\\Final Project (NoteLy)\\FinalProject\\NoteLy.Web\\wwwroot\\",
+      "BasePath": "_content/NoteLy.Web",
+      "RelativePath": "Resources/Triplet note 500.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Resources\\Triplet note 500.svg"
     }
   ]
 }

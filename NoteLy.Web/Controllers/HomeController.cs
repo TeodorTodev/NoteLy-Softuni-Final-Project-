@@ -11,17 +11,16 @@ using NoteLy.Web.ViewModels.Playlist;
 using NoteLy.Web.ViewModels.Song;
 using System.Diagnostics;
 using System.Security.Claims;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NoteLy.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly NoteLyDbContext dbContext;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IHomeService homeService;
-        public HomeController(NoteLyDbContext _dbContext, UserManager<ApplicationUser> _userManager, IHomeService homeService)
+        public HomeController(UserManager<ApplicationUser> _userManager, IHomeService homeService)
         {
-            this.dbContext = _dbContext;
             this.userManager = _userManager;
             this.homeService = homeService;
         }
@@ -83,7 +82,21 @@ namespace NoteLy.Web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return RedirectToAction("Status", new { statusCode = 500 });
+        }
+
+        public IActionResult Status(int statusCode)
+        {
+            Console.WriteLine(statusCode);
+            switch (statusCode)
+            {
+                case 404:
+                    return View("Status404");
+                case 500:
+                    return View("Status500");
+                default:
+                    return View("Status500");
+            }
         }
     }
 }

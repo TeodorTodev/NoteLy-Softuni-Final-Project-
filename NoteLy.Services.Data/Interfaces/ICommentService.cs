@@ -10,7 +10,7 @@ namespace NoteLy.Services.Data.Interfaces
         Task AddCommentAsync(string id, AddCommentInputModel model, Guid currentUserId);
 
         Task<Comment?> GetCommentById(int id);
-        Task<Comment?> EditCommentAsync(EditCommentViewModel model);
+        Task EditCommentAsync(EditCommentViewModel model);
 
         Task<bool> DeleteCommentAsync(int id);
     }

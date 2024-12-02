@@ -13,12 +13,10 @@ namespace NoteLy.Web.Controllers
 {
     public class CommentController : Controller
     {
-        private readonly NoteLyDbContext _dbContext;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly ICommentService commentService;
-        public CommentController(NoteLyDbContext dbContext, UserManager<ApplicationUser> userManager, ICommentService commentService)
+        public CommentController(UserManager<ApplicationUser> userManager, ICommentService commentService)
         {
-            this._dbContext = dbContext;
             this.userManager = userManager;
             this.commentService = commentService;
         }
@@ -72,11 +70,9 @@ namespace NoteLy.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                Comment? comment = 
-                    await this.commentService.EditCommentAsync(model);
+                await this.commentService.EditCommentAsync(model);
 
-
-                return RedirectToAction("Index", "Home", new { songId = comment.SongId });
+                return RedirectToAction("Index", "Home");
             }
 
             return View(model);

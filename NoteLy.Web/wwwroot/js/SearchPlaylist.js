@@ -15,7 +15,6 @@
             data: { query: query },
             success: function (response) {
                 if (response.success) {
-                    var userId = response.userId;
                     response.playlists.forEach(playlist => {
                         let playlistHtml = `
                             <div class="Playlist" data-id="${playlist.id}" onclick="loadSongs(${playlist.id})">
@@ -23,7 +22,7 @@
                                 <span class="PlInfoDiv">
                                     <p class="Name" style="letter-spacing: 1px; font-weight: 500;">${playlist.name}</p>
                                 </span>
-                                ${playlist.applicationUserId === userId ? `
+                                ${playlist.applicationUserId === response.currentUserId ? `
                                     <div class="PlaylistCardActions">
                                         <td>
                                             <a class="editPlaylist" href="/PlayList/Edit/${playlist.id}">

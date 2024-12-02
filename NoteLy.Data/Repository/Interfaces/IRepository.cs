@@ -20,6 +20,8 @@
 
         Task<bool> DeleteAsync(TId id);
 
+        Task DeleteRangeAsync(IEnumerable<TType> items);
+
         bool Update(TType item);
 
         Task<bool> UpdateAsync(TType item);
