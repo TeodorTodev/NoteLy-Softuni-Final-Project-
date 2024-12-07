@@ -19,9 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteLy.Common", "NoteLy.Com
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5C05D02B-6372-4D50-8DE4-13920D29ADA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteLy.Services.Data", "NoteLy.Services.Data\NoteLy.Services.Data.csproj", "{B7B42014-9091-4BCF-8ADD-77F8CB50E761}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteLy.Services.Data", "NoteLy.Services.Data\NoteLy.Services.Data.csproj", "{B7B42014-9091-4BCF-8ADD-77F8CB50E761}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notely.Web.Infrastructure", "Notely.Web.Infrastructure\Notely.Web.Infrastructure.csproj", "{2144B96C-2C18-4263-8BCE-F71923738020}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notely.Web.Infrastructure", "Notely.Web.Infrastructure\Notely.Web.Infrastructure.csproj", "{2144B96C-2C18-4263-8BCE-F71923738020}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{117A41BA-1984-4391-B0D8-675FA7071DFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteLy.Services.Tests", "NoteLy.Services.Tests\NoteLy.Services.Tests.csproj", "{06160D84-E4AA-4A94-9A1E-666C7A86E629}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,10 @@ Global
 		{2144B96C-2C18-4263-8BCE-F71923738020}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2144B96C-2C18-4263-8BCE-F71923738020}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2144B96C-2C18-4263-8BCE-F71923738020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06160D84-E4AA-4A94-9A1E-666C7A86E629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06160D84-E4AA-4A94-9A1E-666C7A86E629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06160D84-E4AA-4A94-9A1E-666C7A86E629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06160D84-E4AA-4A94-9A1E-666C7A86E629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +76,7 @@ Global
 		{6E05BF96-7753-4717-B8A4-EB9DDDA9680A} = {BCA66D39-F320-4CDC-8462-BAD3C6B5F78B}
 		{B7B42014-9091-4BCF-8ADD-77F8CB50E761} = {5C05D02B-6372-4D50-8DE4-13920D29ADA6}
 		{2144B96C-2C18-4263-8BCE-F71923738020} = {66559F0B-BD27-4A57-8E91-D91DE358E47E}
+		{06160D84-E4AA-4A94-9A1E-666C7A86E629} = {117A41BA-1984-4391-B0D8-675FA7071DFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {609FAF52-26B3-4063-82DE-10B2CDAE683E}

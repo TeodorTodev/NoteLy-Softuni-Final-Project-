@@ -106,8 +106,3 @@ namespace NoteLy.Web.Controllers
         }
     }
 }
-
-public class AudioMetadata
-{
-    public string Title { get; set; }
-}

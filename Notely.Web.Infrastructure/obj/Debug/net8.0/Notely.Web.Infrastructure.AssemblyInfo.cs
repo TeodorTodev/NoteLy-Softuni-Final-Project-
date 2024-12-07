@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Notely.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ddace4a748d7b879dcff830127f3ddd2ca4b207")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea56017213ddae5691c2797d58465385bf5499ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("Notely.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Notely.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

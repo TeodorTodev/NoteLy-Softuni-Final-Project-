@@ -15,13 +15,15 @@ namespace NoteLy.Services.Data
         private IRepository<PlayList, int> playlistRepository;
         private IRepository<Comment, int> commentRepository;
         private IRepository<Artist, int> artistRepository;
+        private IRepository<ArtistSong, object> artistSongRepository;
 
-        public SongService(IRepository<Song, int> songRepository, IRepository<PlayList, int> playlistRepository, IRepository<Comment, int> commentRepository, IRepository<Artist, int> artistRepository)
+        public SongService(IRepository<Song, int> songRepository, IRepository<PlayList, int> playlistRepository, IRepository<Comment, int> commentRepository, IRepository<Artist, int> artistRepository, IRepository<ArtistSong, object> artistSongRepository)
         {
             this.songRepository = songRepository;
             this.playlistRepository = playlistRepository;
             this.commentRepository = commentRepository;
             this.artistRepository = artistRepository;
+            this.artistSongRepository = artistSongRepository;
         }
 
         public async Task<(bool success, string fieldForErrorMessage, string errorMessage)> CreateSongAsync(string selectedPlaylistId, AddSongInputModel songViewModel, Guid currentUserId)
@@ -35,7 +37,7 @@ namespace NoteLy.Services.Data
             var timeParts = songViewModel.Duration.Split(':');
             if (timeParts.IsNullOrEmpty())
             {
-                return (false, "Duration", "Please enter a valid time format.");
+                return (false, "Duration", "Please enter a valid test format.");
             }
 
             TimeSpan time = ValidateAndParseDuration(timeParts);
@@ -97,7 +99,10 @@ namespace NoteLy.Services.Data
                 return null;
             }
 
-            var artistIds = song.Artists.Select(a => a.ArtistId).ToList();
+            var artistIds = await this.artistSongRepository.GetAllAttached()
+                .Where(As => As.SongId == song.Id)
+                .Select(As => As.ArtistId)
+                .ToListAsync();
 
             var usernames = await this.artistRepository
                 .GetAllAttached()

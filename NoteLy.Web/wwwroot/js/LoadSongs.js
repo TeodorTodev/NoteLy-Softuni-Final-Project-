@@ -4,7 +4,6 @@
         type: 'GET',
         data: { playlistId: playlistId },
         success: function (songs) {
-            console.log(songs);
             var songsContainer = $('.Songs');
             songsContainer.empty(); // Clear previous songs
 
