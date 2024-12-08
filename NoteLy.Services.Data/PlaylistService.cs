@@ -41,7 +41,7 @@ namespace NoteLy.Services.Data
             var playlist = await this.playlistRepository
                 .GetAllAttached()
                 .Include(p => p.Songs)
-            .ThenInclude(s => s.Comments)
+                .ThenInclude(s => s.Comments)
                 .FirstOrDefaultAsync(p => p.Id == id && p.ApplicationUserId == currentUserId);
 
             // Remove comments related to each song

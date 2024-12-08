@@ -11,7 +11,7 @@ using NoteLy.Web.ViewModels.Song;
 namespace NoteLy.Services.Tests
 {
     [TestFixture]
-    public class Tests
+    public class SongServiceTests
     {
         private IList<Song> songsData = new List<Song>()
         {
