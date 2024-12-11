@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NoteLy.Services.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42124340a2a623f52a9414344778bebf09fc7177")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ddf7392f32a2a0f34f78f5397de49c41597926f")]
 [assembly: System.Reflection.AssemblyProductAttribute("NoteLy.Services.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NoteLy.Services.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
