@@ -6,7 +6,6 @@ using NoteLy.Services.Data.Interfaces;
 using NoteLy.Web.ViewModels.Comment;
 using NoteLy.Web.ViewModels.Playlist;
 using NoteLy.Web.ViewModels.Song;
-//using static NoteLy.Common.EntityValidationConstants;
 using System.Security.Claims;
 
 namespace NoteLy.Services.Data
@@ -28,7 +27,7 @@ namespace NoteLy.Services.Data
             this.userRepository = userRepository;
         }
 
-        public async Task<IEnumerable<SongCardViewModel>> GetAllPlaylistsWithSongsAndArtists(int id, Guid currentUserId) //bugva neshto tuk
+        public async Task<IEnumerable<SongCardViewModel>> GetAllPlaylistsWithSongsAndArtists(int id, Guid currentUserId)
         {
             PlayList? playlist = await this.playListRepository
                 .GetAllAttached()
